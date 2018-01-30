@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-3</title>
+	<style type="text/css">
+		input, select {
+			outline: none;
+		}
+		.container {
+			width: 100%;
+		}
+		.container a {
+			text-decoration: none;
+		}
+		.view {
+			width: 600px;
+			margin: 0 auto;
+		}
+		.view-tab {
+			margin-bottom: 10px;
+		}
+		.view-tab .f-item a {
+			position: relative;
+			font-weight: 700;
+			padding-left: 22px;
+		}
+		.view-tab .f-item a::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 14px;
+			height: 14px;
+			content: '';
+			border: 1px solid #bbb;
+			border-radius: 50%;
+			background: rgb(255, 255, 255);
+		}
+		.active:after {
+	    position: absolute;
+	    top: 0px;
+	    left: 0px;
+	    display: block;
+	    width: 8px;
+	    height: 8px;
+	    content: '';
+	    border-radius: 50%;
+	    border: 4px solid deepskyblue;
+		}
+		.view-tab .f-item:first-Child a {
+			padding-right: 160px;
+			color: #222;
+		}
+		.form-main {
+	    margin: 10px 0;
+			box-sizing: border-box;
+		}
+		.f-item {
+			display: inline-block;
+			height: 30px;
+		}
+		.f-item select, .f-item input {
+			padding-left: 8px;
+			border: 1px solid #999;
+			border-radius: 8px;
+		}
+		.f-city {
+			height: 100%;
+			width: 140px;
+			margin-right: 20px;
+		}
+		.f-college {
+			height: 100%;
+			width: 246px;
+		}
+		.f-text {
+			height: 30px;
+			width: 400px;
+		}
+		.f-label {
+			display: inline-block;
+			width: 100px;
+			padding: 11px 12px 11px 0px;
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+			<div class="view">
+				<div class="view-tab" id="viewTab">
+					<div class="f-item">
+						<span class="f-label"></span>
+						<a class="active" data-index="0" href="javascript:;">在校生</a>
+						<a class data-index="1" href="javascript:;">非在校生</a>
+					</div>
+				</div>
+				<div class="form-main">
+					<label class="f-label">学校</label>
+					<div class="f-item">
+						<select class="f-city" id="province-select" hidefocus="true">
+							<option>市</option>
+							<option value="0">北京</option>
+							<option value="1">广东</option>
+						</select>
+						<select class="f-college" id="college-select" hidefocus="true">
+							<option>大学</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-main">
+					<label class="f-label">就业单位</label>
+					<div class="f-item">
+						<input class="f-text" type="text">
+					</div>
+				</div>
+			</div>
+	</div>
+	<script>
+	window.onload = function() {
+		var tab = document.querySelectorAll('.view-tab .f-item a');
+		var main = document.querySelectorAll('.view .form-main');
+
+		for (var i = 0;i < tab.length; i++) {
+			// 遍历给tab选项添加一个事件监控,点击触发
+			tab[i].addEventListener('click',function(){
+				// 获取data-index的值
+				var index = parseInt(this.getAttribute('data-index'));
+				for (var j = 0; j < main.length; j++) {
+					// 清除全部样式,再添加触发事件的key相应的属性
+					tab[j].setAttribute('class','');
+					main[j].style.display = 'none';
+				}
+				tab[index].setAttribute('class', 'active');
+				main[index].style.display = 'block';
+			});
+		}
+
+		document.querySelector('.f-city').addEventListener('change',function(){
+			var html = '';
+			switch (this.value) {
+				case '0':
+					html = '<option>北京大学</option><option>清华大学</option>';
+					break;
+				case '1':
+					html = '<option>华南理工大学</option><option>深圳大学</option>';
+			}
+			// 判断value输出HTML
+			document.querySelector('.f-college').innerHTML = html;
+		});
+		};
+	</script>
+</body>
+</html>

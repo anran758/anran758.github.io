@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task_02</title>
+	<style type="text/css">
+	input:focus {
+		border-color: #2188ff;
+    outline: none;
+    box-shadow: inset 0 1px 2px rgba(27,31,35,0.075), 0 0 0 0.2em rgba(3,102,214,0.3);
+	}
+		.page {
+			position: relative;
+			width: 100%;
+			min-width: 1190px;
+		}
+		.container {
+			width: 720px;
+			margin: 50px auto;
+		}
+		.from-group {
+			padding: 6px 0;
+		}
+		.form-item {
+			display: inline-block;
+			height: 36px;
+			line-height: 36px;
+			padding: 8px 0 6px;
+		}
+		.form-tips{
+			display: none;
+			margin-bottom: 10px;
+		}
+		.form-label {
+			display: inline-block;
+			width: 200px;
+			margin-right: 20px;
+			font-size: 16px;
+			font-weight: 700;
+			text-align: right;
+		}
+		.name-text {
+			display: inline-block;
+			width: 300px;
+		}
+		.form-text {
+			width: 100%;
+			height: 30px;
+			padding: 0 10px;
+			border: 1px solid #aaa;
+			border-radius: 6px;
+			box-sizing: border-box;
+		}
+		.btn {
+			width: 300px;
+			height: 40px;
+			border: 1px solid transparent;
+			border-radius: 6px;
+			font-size: 14px;
+			font-weight: 700;
+			color: #fff;
+			background: rgb(47, 121, 186);
+		}
+		.tips {
+			padding-left: 6px;
+			font-size: 14px;
+			color: #999;
+			font-weight: 500;
+		}
+	</style>
+</head>
+<body>
+<div class="page">
+	<!-- 表单 -->
+	<div class="container">
+		<div class="form-group">
+			<!-- Name -->
+			<div class="form-item">
+				<span class="form-label">名称</span>
+				<div class="name-text">
+					<input class="form-text" id="name" type="text">
+				</div>
+			</div>
+			<div class="form-tips" id="tipsNa">
+				<span class="form-label"></span>
+				<span class="name-text tips" id="tipsName">必填，为长度4~16个字符</span>
+			</div>
+			<!-- Password -->
+			<div class="form-item">
+				<span class="form-label">密码</span>
+				<div class="name-text">
+					<input class="form-text" id="password" type="password">
+				</div>
+			</div>
+			<div class="form-tips" id="tipsPa">
+				<span class="form-label"></span>
+				<span class="name-text tips" id="tipsPass">输入几位数的密码</span>
+			</div>
+			<!-- Confirm Password -->
+			<div class="form-item">
+				<span class="form-label">确定密码</span>
+				<div class="name-text">
+					<input class="form-text" id="passwordRe" type="password">
+				</div>
+			</div>
+			<div class="form-tips" id="tipsRepass">
+				<span class="form-label"></span>
+				<span class="name-text tips" id="tipsRepa">再次输入相同密码</span>
+			</div>
+			<!-- Mail -->
+			<div class="form-item">
+				<span class="form-label">邮箱</span>
+				<div class="name-text">
+					<input class="form-text" id="mail" type="text">
+				</div>
+			</div>
+			<div class="form-tips" id="tipsMa">
+				<span class="form-label"></span>
+				<span class="name-text tips" id="tipsMail">输入您的邮箱地址</span>
+			</div>
+			<!-- Mobile -->
+			<div class="form-item">
+				<span class="form-label">手机</span>
+				<div class="name-text">
+					<input class="form-text" id="mobile" type="text">
+				</div>
+			</div>
+			<div class="form-tips" id="tipsMo">
+				<span class="form-label"></span>
+				<span class="name-text tips" id="tipsMobile">输入您的手机号码</span>
+			</div>
+			<!-- Confirm Button -->
+			<div class="form-item">
+				<span class="form-label"></span>
+				<div class="name-text">
+					<button class="btn" id="btnFrom">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+(function(){
+	var $ = function(id) {
+		return document.getElementById(id);
+	};
+	var name = $('name');
+	var	mail = $('mail');
+	var	mobile = $('mobile');
+	var	password = $('password');
+	var	passwordRe = $('passwordRe');
+	var btn = $('btnFrom');
+	var flag = [];
+
+	// 获取焦点
+	name.onfocus = function() {
+		$('tipsNa').style.display = "block";
+	};
+	password.onfocus = function() {
+		$('tipsPa').style.display = "block";
+	};
+	passwordRe.onfocus = function() {
+		$('tipsRepass').style.display = "block";
+	};
+	mail.onfocus = function() {
+		$('tipsMa').style.display = "block";
+	};
+	mobile.onfocus = function() {
+		$('tipsMo').style.display = "block";
+	};
+	// btn
+	btn.onclick = function(){
+		// 调用函数确定
+		confirm1();
+		confirm2();
+		confirm3();
+		confirm4();
+		confirm5();
+
+		if (flag.length == 5) {
+			alert('提交成功');
+		} else {
+			alert('填写有误');
+		}
+	};
+
+	// 失去焦点
+	name.onblur = confirm1;
+	password.onblur = confirm2;
+	passwordRe.onblur = confirm3;
+	mail.onblur = confirm4;
+	mobile.onblur = confirm5;
+
+
+
+	// 名称
+	function confirm1() {
+		$('tipsNa').style.display = "block";
+		var tips = $('tipsName');
+		var reg = /^[a-zA-Z0-9]{4,16}$/;
+		var collate = reg.test(name.value.replace(/[\u4e00-\u9fa5]/g, "aa"));
+
+		if (collate) {
+			name.style.borderColor = "rgb(66, 133, 244)";
+			tips.innerHTML = tips.innerText.replace(tips.innerText,"名字格式正确");
+			tips.style.color = "rgb(66, 133, 244)";
+
+			if (flag.indexOf(1) == -1) {
+				flag.push(1);
+			}
+		} else {
+			name.style.borderColor = "red";
+			tips.innerHTML = tips.innerText.replace(tips.innerText,"格式错误,请输入4~16个字符串");
+			tips.style.color = "red";
+		}
+	}
+
+	// 密码
+	function confirm2() {
+			$('tipsPa').style.display = "block";
+		var tips = $('tipsPass');
+		var reg = /^[a-zA-Z0-9]{8,}$/;
+		var collate = reg.test(password.value);
+
+		if (collate) {
+			password.style.borderColor = "rgb(66, 133, 244)";
+			tips.innerHTML = tips.innerText.replace(tips.innerText,"当前密码可用");
+			tips.style.color = "rgb(66, 133, 244)";
+
+			if (flag.indexOf(2) == -1) {
+				flag.push(2);
+			}
+		} else {
+			password.style.borderColor = "red";
+			tips.innerHTML = tips.innerText.replace(tips.innerText,"格式错误,请输入8个英文,数字字符串以上");
+			tips.style.color = "red";
+		}
+	}
+
+	// 确定密码
+	function confirm3() {
+		$('tipsRepass').style.display = "block";
+		var tips = $('tipsRepa');
+
+		if (password.value) {
+				if (passwordRe.value === password.value) {
+					passwordRe.style.borderColor = "rgb(66, 133, 244)";
+					tips.innerHTML = tips.innerText.replace(tips.innerText,"当前密码正确");
+					tips.style.color = "rgb(66, 133, 244)";
+
+					if (flag.indexOf(3) == -1) {
+						flag.push(3);
+					}
+				} else {
+					passwordRe.style.borderColor = "red";
+					tips.innerHTML = tips.innerText.replace(tips.innerText,"密码输入不一致");
+					tips.style.color = "red";
+				}
+			}else {
+					passwordRe.style.borderColor = "red";
+					tips.innerHTML = tips.innerText.replace(tips.innerText,"请确定密码");
+					tips.style.color = "red";
+				}
+
+	}
+
+	// 邮箱
+	function confirm4() {
+		$('tipsMa').style.display = "block";
+		var tips = $('tipsMail');
+		var reg = /^[\w\d_]+[\w\d-_]*@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+		var collate = reg.test(mail.value);
+
+		if (collate) {
+			mail.style.borderColor = "rgb(66, 133, 244)";
+			tips.innerHTML = tips.innerText.replace(tips.innerText,"邮箱可用");
+			tips.style.color = "rgb(66, 133, 244)";
+
+			if (flag.indexOf(4) == -1) {
+				flag.push(4);
+			}
+		} else {
+			mail.style.borderColor = "red";
+			tips.innerHTML = tips.innerText.replace(tips.innerText,"邮箱格式错误");
+			tips.style.color = "red";
+		}
+	}
+
+	function confirm5() {
+		$('tipsMo').style.display = "block";
+		var tips = $('tipsMobile');
+		var reg = /^1[3|5|8|9]\d{9}$/;
+		var collate = reg.test(mobile.value);
+
+		if (collate) {
+			mobile.style.borderColor = "rgb(66, 133, 244)";
+			tips.innerHTML = tips.innerText.replace(tips.innerText,"手机号格式正确");
+			tips.style.color = "rgb(66, 133, 244)";
+
+			if (flag.indexOf(5) == -1) {
+				flag.push(5);
+			}
+		} else {
+			mobile.style.borderColor = "red";
+			tips.innerHTML = tips.innerText.replace(tips.innerText,"格式错误,请输入正确的手机格式");
+			tips.style.color = "red";
+		}
+	}
+
+	// btn.onclick = function() {
+	// 	var tips = $('tips');
+	// 	// 替换汉字占两个字符串
+	// 	var mate = reg.test(formName.value.replace(/[\u4e00-\u9fa5]/g, 'aa'));
+	// 	if (mate) {
+	// 			formName.
+
+	// 	} else {
+
+	// 	}
+	// };
+	})();
+</script>
+</body>
+</html>

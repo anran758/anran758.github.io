@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task_RegExp</title>
+  <style type="text/css">
+  input:focus {
+    border-color: #2188ff;
+    outline: none;
+    box-shadow: inset 0 1px 2px rgba(27,31,35,0.075), 0 0 0 0.2em rgba(3,102,214,0.3);
+  }
+    .page {
+      position: relative;
+      width: 100%;
+      min-width: 1190px;
+    }
+    .container {
+      width: 720px;
+      margin: 50px auto;
+    }
+    .from-group {
+      padding: 6px 0;
+    }
+    .form-item {
+      display: inline-block;
+      height: 36px;
+      line-height: 36px;
+      padding: 8px 0 6px;
+    }
+    .form-tips{
+      display: none;
+      margin-bottom: 10px;
+    }
+    .form-label {
+      display: inline-block;
+      width: 200px;
+      margin-right: 20px;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: right;
+    }
+    .name-text {
+      display: inline-block;
+      width: 300px;
+    }
+    .form-text {
+      width: 100%;
+      height: 30px;
+      padding: 0 10px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    .btn {
+      width: 300px;
+      height: 40px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      background: rgb(47, 121, 186);
+    }
+    .tips {
+      padding-left: 6px;
+      font-size: 14px;
+      color: #999;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- 表单 -->
+  <div class="container">
+    <div class="form-group">
+      <!-- Name -->
+      <div class="form-item">
+        <span class="form-label">名称</span>
+        <div class="name-text">
+          <input class="form-text" id="name" type="text">
+        </div>
+      </div>
+      <div class="form-tips" id="tipsNa">
+        <span class="form-label"></span>
+        <span class="name-text tips" id="tipsName">必填，为长度4~16个字符</span>
+      </div>
+      <!-- Mobile -->
+      <div class="form-item">
+        <span class="form-label">手机</span>
+        <div class="name-text">
+          <input class="form-text" id="mobile" type="text">
+        </div>
+      </div>
+      <div class="form-tips" id="tipsMo">
+        <span class="form-label"></span>
+        <span class="name-text tips" id="tipsMobile">输入您的手机号码</span>
+      </div>
+      <!-- Confirm Button -->
+      <div class="form-item">
+        <span class="form-label"></span>
+        <div class="name-text">
+          <button class="btn" id="btnForm">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var $ = function(id) {
+    return document.getElementById(id);
+  };
+  var name = $('name');
+  var	mobile = $('mobile');
+  var btn = $('btnForm');
+  var flag = [];
+
+  // 获取焦点
+  name.onfocus = function() {
+    $('tipsNa').style.display = "block";
+  };
+  mobile.onfocus = function() {
+    $('tipsMo').style.display = "block";
+  };
+  // btn
+  btn.onclick = function(){
+    // 调用函数确定
+    confirm1();
+    confirm2();
+
+    if (flag.length == 2) {
+      alert('提交成功');
+    } else {
+      alert('填写有误');
+    }
+  };
+
+  // 失去焦点
+  name.onblur = confirm1;
+  mobile.onblur = confirm2;
+
+
+
+  // 名称
+  function confirm1() {
+    $('tipsNa').style.display = "block";
+    var tips = $('tipsName');
+    var reg = /\b(\w+)\b\s+\b\1\b/g;
+
+    if (reg) {
+      name.style.borderColor = "rgb(66, 133, 244)";
+      tips.innerHTML = tips.innerText.replace(tips.innerText,"名字格式正确");
+      tips.style.color = "rgb(66, 133, 244)";
+
+      if (flag.indexOf(1) == -1) {
+        flag.push(1);
+      }
+    } else {
+      name.style.borderColor = "red";
+      tips.innerHTML = tips.innerText.replace(tips.innerText,"格式错误,请输入4~16个字符串");
+      tips.style.color = "red";
+    }
+  }
+
+  function confirm2() {
+    $('tipsMo').style.display = "block";
+    var tips = $('tipsMobile');
+    var reg = /^1[3|5|8|9]\d{9}$/;
+    var collate = reg.test(mobile.value);
+
+    if (collate) {
+      mobile.style.borderColor = "rgb(66, 133, 244)";
+      tips.innerHTML = tips.innerText.replace(tips.innerText,"手机号格式正确");
+      tips.style.color = "rgb(66, 133, 244)";
+
+      if (flag.indexOf(5) == -1) {
+        flag.push(5);
+      }
+    } else {
+      mobile.style.borderColor = "red";
+      tips.innerHTML = tips.innerText.replace(tips.innerText,"格式错误,请输入正确的手机格式");
+      tips.style.color = "red";
+    }
+  }
+  })();
+</script>
+</body>
+</html>

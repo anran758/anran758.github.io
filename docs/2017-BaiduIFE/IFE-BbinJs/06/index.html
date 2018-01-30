@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+    .container {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin-top: 50px;
+    }
+    .contai-warp {
+      width: 500px; 
+      margin: 0 auto;
+    }
+    .textarea {
+      display: block;
+      margin-top: 10px;
+      width: 400px;
+      height: 100px;
+    }
+    .btns {
+      display: block;
+      margin: 10px 0px;
+    }
+    .contai-btn {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .contai-text {
+      padding: 0;
+      text-align: center;
+    }
+    .contai-text li {
+      display: inline-block;
+      width: 30px;
+      height: 30px; 
+      margin-right: 10px;
+      vertical-align: 30px;
+      color: #fff;
+      background: #f00;
+      text-align: center;
+      vertical-align: bottom; 
+    }
+    .search {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="contai-warp">
+      <textarea class="textarea" id="impor"placeholder="在此处可以批量添加多个内容,以逗号回车作分割..."></textarea>
+      <div class="btns">
+        <div class="contai-btn">
+          <button id="joLeft">左侧入</button>
+          <button id="joRight">右侧入</button>
+        </div>
+        <div class="contai-btn">
+          <button id="coLeft">左侧出</button>
+          <button id="coRight">右侧出</button>
+        </div>
+        <button id="sort">排序</button>
+      </div>
+      <input class="search" id="inpSea" type="text" placeholder="请输入您想查询的数字">
+      <button id="search" style="margin-left:10px;">搜索</button>
+    </div>
+    <ul class="contai-text" id="contaiText"></ul>
+  </div>
+
+  <script>
+     var num = document.getElementById('impor'),
+        numList = document.getElementById('contaiText'),
+        joLeft = document.getElementById('joLeft'),
+        joRight = document.getElementById('joRight'),
+        coLeft = document.getElementById('coLeft'),
+        coRight = document.getElementById('coRight'),
+        sort = document.getElementById('sort'),
+        search = document.getElementById('search');
+
+      // 左侧入
+      function leftJoin() {
+        var areaNum = num.value.split(/\s+|\n|\t|,|\.|，|。/g);
+
+        for (var m = 0; m < areaNum.length; m ++) {
+          if (areaNum[m] === '') {
+            continue;
+          }
+          var li = document.createElement('li');
+          li.innerHTML = areaNum[m];
+          li.style.height = areaNum[m] + "px";
+          numList.insertBefore(li, numList.firstChild);
+        }
+      }
+
+      // 右侧入
+      function rightJoin() {
+        var areaNum = num.value.split(/\s+|\n|\t|,|\.|，|。/g);
+
+        for (var m = 0; m < areaNum.length; m ++) {
+          if (areaNum[m] === '') {
+            continue;
+          }
+          var li = document.createElement('li');
+          li.innerHTML = areaNum[m];
+          li.style.height = areaNum[m] + "px";
+          numList.appendChild(li);
+        }
+      }
+
+      numList.addEventListener('click',function(){
+        if (event.target.nodeName.toLowerCase() == 'li') {
+          var removeNum = numList.removeChild(event.target);
+        }
+      });
+
+      // btn
+      joLeft.onclick = leftJoin;
+      joRight.onclick = rightJoin;
+      coLeft.onclick = function(){
+        var removeNum = numList.removeChild(numList.firstChild);
+          alert("删除的数值是:" + removeNum.innerHTML);
+      };
+      coRight.onclick = function() {
+        var removeNum = numList.removeChild(numList.lastChild);
+          alert("删除的数值是:" + removeNum.innerHTML);
+      };
+
+      // 选择排序
+      sort.onclick = function() {
+        var getLi = numList.getElementsByTagName('li');
+        var len = getLi.length;
+        var heightArr = []; // 高度的集合
+        for (var n = 0; n < len; n++) {
+          heightArr.push(parseInt(getLi[n].style.height));
+        }
+
+        // 选择排序
+        for (var i = 0; i < len - 1; i++) {
+          // 选择排序,循环选中数组最大的数字带到后面,每选中一次就减少一次循环"len - 1 - i"
+          for (var j = 0; j < len - 1 - i; j++) {
+            // 比较两个数组的大小,前者大就false
+            if (heightArr[j] > heightArr[j + 1]) {
+              // 将数组的位置保存进temp
+              var temp = heightArr[j];
+              // 两者位置调换
+                heightArr[j] = heightArr[j + 1];
+                heightArr[j + 1] = temp;
+            }
+          }
+        }
+
+        // 定时器动态效果,
+        var m = 0;
+        var timer = setInterval(function(){
+          if (m < heightArr.length) {
+            getLi[m].style.height = heightArr[m] + 'px';
+            getLi[m].innerText = heightArr[m];
+            m++;
+          } else {
+            clearInterval(timer);
+          }
+        }, 100);
+      };
+
+      // search
+      search.onclick = function() {
+        var textSea = document.getElementById('inpSea').value,
+          liList = document.getElementsByTagName('li');
+
+        for (var i = 0; i < liList.length; i++) {
+          var li = liList[i];
+          // 如果要搜索的值在li中找得到的话,那就返回字符串的位置,找不到就返回'-1'.
+          if (liList[i].innerHTML.indexOf(textSea) >=0) {
+            li.style.color = '#000';
+          } else {
+            li.style.color ="#fff";
+          }
+        }
+      }
+
+  </script>
+</body>
+</html>
