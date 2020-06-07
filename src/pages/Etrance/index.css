@@ -1,0 +1,58 @@
+.introduction {
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.8em;
+  letter-spacing: 0.1em;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-align: center;
+  background-color: #13316d;
+  background-size: 100% auto;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+
+@media screen and (min-width: 769px) {
+  .introduction {
+    background-color: #213e78;
+    background-image: url('~static/images/bg_pc.jpg');
+    background-size: 50% auto;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  margin-top: -10em;
+}
+
+.name {
+  font-size: 2em;
+}
+
+.desc {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.nav {
+  display: flex;
+  font-size: 1.2em;
+  line-height: 1;
+  margin-top: 16px;
+  color: #40a9ff;
+}
+
+.navItem {
+  position: relative;
+  padding: 0 16px;
+}
+
+.navItem + .navItem {
+  border-left: 2px solid #fff;
+}

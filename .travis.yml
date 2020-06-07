@@ -1,0 +1,28 @@
+# 使用最新的 LTS Node.js版本
+# https://docs.travis-ci.com/user/languages/javascript-with-nodejs/
+language: node_js
+node_js:
+  - lts/*
+
+# 运行脚本
+install:
+  - yarn install # npm ci
+script:
+  - yarn build # npm run build
+
+# 部署信息
+deploy:
+  provider: pages
+  skip_cleanup: true
+
+  # 在 GitHub 中生成，用于允许 Travis 向你的仓库推送代码。
+  # 在 [Travis](https://travis-ci.com/) 的项目设置页面进行配置，设置为 secure variable
+  # 设置变量时不用带 $
+  github_token: $GITHUB_TOKEN
+
+  keep_history: true
+
+  # 部署后的分支, 默认为: gh-pages
+  target_branch: master
+  on:
+    branch: develop
