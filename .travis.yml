@@ -9,6 +9,7 @@ install:
   - yarn install # npm ci
 script:
   - yarn build # npm run build
+  - commitlint-travis
 
 # 部署信息
 deploy:
