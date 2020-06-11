@@ -10,8 +10,6 @@ const projectPaths: CustomConfig = {
   staticDir: 'static',
 };
 
-console.log('static --> ',path.resolve(projectPaths.sourceRoot, 'static'));
-
 const baseConfig: CustomConfig = {
   ...projectPaths,
 
@@ -21,6 +19,7 @@ const baseConfig: CustomConfig = {
   // 公用别名
   commonAlias: {
     '@': path.resolve(projectPaths.sourceRoot),
+    images: path.resolve(projectPaths.sourceRoot, 'images'),
     static: path.resolve(projectPaths.sourceRoot, 'static'),
   },
 

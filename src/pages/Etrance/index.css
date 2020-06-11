@@ -15,7 +15,7 @@
 @media screen and (min-width: 769px) {
   .introduction {
     background-color: #213e78;
-    background-image: url('~static/images/bg_pc.jpg');
+    background-image: url('~images/bg_pc.jpg');
     background-size: 50% auto;
   }
 }

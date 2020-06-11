@@ -1,4 +1,5 @@
 import { Configuration } from 'webpack';
+import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { getCssLoaderOption } from './css/css-loader-options';
@@ -6,7 +7,14 @@ import { getPostcssOption } from './css/postcss-options';
 
 import config from '../../config/webpack/base';
 
-const genAssetSubPath = (dir: string) => `${dir}/[name].[hash:8]`;
+/**
+ * 生成相对资源目录的路径
+ */
+const genStaticPath = (...relativePaths: string[]) =>
+  path.join(config.staticDir, ...relativePaths);
+
+const genAssetSubPath = (dir: string) =>
+  genStaticPath(`${dir}/[name].[hash:8].[ext]`);
 
 /**
  * 生成 url loader 选项
@@ -22,8 +30,8 @@ const webpackConfig: Configuration = {
   output: {
     path: config.buildRoot,
     publicPath: config.publicPath,
-    filename: 'js/[name].[hash].js',
-    chunkFilename: 'js/[name].bundle.js',
+    filename: genStaticPath('js/[name].[hash].js'),
+    chunkFilename: genStaticPath('js/[name].bundle.js'),
   },
   resolve: {
     // 自动解析确定的扩展
@@ -114,8 +122,8 @@ const webpackConfig: Configuration = {
     // 将 CSS 提取到单独的文件
     // https://github.com/webpack-contrib/mini-css-extract-plugin
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[chunkhash:8].css',
-      chunkFilename: 'css/[name].[chunkhash:8].css',
+      filename: genStaticPath('css/[name].[chunkhash:8].css'),
+      chunkFilename: genStaticPath('css/[name].[chunkhash:8].css'),
     }),
   ],
   optimization: {

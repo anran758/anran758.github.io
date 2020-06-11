@@ -9,7 +9,7 @@ export interface CustomConfig {
   buildRoot: string;
 
   /** 静态资源目录名 */
-  staticDir?: string;
+  staticDir: string;
 
   // webpack 配置
   entry?: Configuration['entry'];
