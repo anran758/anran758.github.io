@@ -8,7 +8,8 @@
     "build": "cross-env NODE_ENV=production ts-node ./build/webpack/build.ts",
     "lint:ts": "eslint \"{config,build,src,tools}/**/*.ts{,x}\"",
     "tsc": "tsc",
-    "cz": "npx git-cz"
+    "cz": "npx git-cz",
+    "test:prod": "npm run build && ts-node ./server.ts"
   },
   "husky": {
     "hooks": {
@@ -66,6 +67,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
+    "express": "^4.17.1",
     "file-loader": "^6.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^4.2.0",
