@@ -1,6 +1,7 @@
 import { Configuration } from 'webpack';
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 import { getCssLoaderOption } from './css/css-loader-options';
 import { getPostcssOption } from './css/postcss-options';
@@ -15,6 +16,11 @@ const genStaticPath = (...relativePaths: string[]) =>
 
 const genAssetSubPath = (dir: string) =>
   genStaticPath(`${dir}/[name].[hash:8].[ext]`);
+
+const getCopyRootFileOpt = (filename: string) => ({
+  from: path.join(__dirname, '..', '..', filename),
+  to: path.join(config.buildRoot),
+});
 
 /**
  * 生成 url loader 选项
@@ -124,6 +130,20 @@ const webpackConfig: Configuration = {
     new MiniCssExtractPlugin({
       filename: genStaticPath('css/[name].[chunkhash:8].css'),
       chunkFilename: genStaticPath('css/[name].[chunkhash:8].css'),
+    }),
+
+    // 拷贝资源
+    // https://github.com/webpack-contrib/copy-webpack-plugin
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(config.sourceRoot, config.staticDir),
+          to: path.join(config.buildRoot, config.staticDir),
+          toType: 'dir',
+        },
+        getCopyRootFileOpt('README.md'),
+        getCopyRootFileOpt('LICENSE'),
+      ],
     }),
   ],
   optimization: {

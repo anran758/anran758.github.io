@@ -27,7 +27,7 @@ rm(config.buildRoot, (err) => {
         children: false,
         chunks: false,
         chunkModules: false,
-      })}'\n\n'`
+      })}\n\n`
     );
 
     // eslint-disable-next-line no-console

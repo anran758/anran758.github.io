@@ -1,11 +1,9 @@
 import webpack from 'webpack';
 import merge from 'webpack-merge';
-import path from 'path';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 import webpackCommonConf from './webpack.base';
 import config from '../../config/webpack/prod';
@@ -92,18 +90,6 @@ const webpackProdConf: webpack.Configuration = {
         collapseWhitespace: true,
         removeAttributeQuotes: true,
       },
-    }),
-
-    // 拷贝资源
-    // https://github.com/webpack-contrib/copy-webpack-plugin
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(config.sourceRoot, config.staticDir),
-          to: path.join(config.buildRoot, config.staticDir),
-          toType: 'dir',
-        },
-      ],
     }),
 
     // 根据模块的相对路径生成一个四位数的hash作为模块id
