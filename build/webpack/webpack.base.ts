@@ -1,10 +1,9 @@
-import { Configuration } from 'webpack';
 import path from 'path';
+import { Configuration } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
-import { getCssLoaderOption } from './css/css-loader-options';
-import { getPostcssOption } from './css/postcss-options';
+import { createCSSRule } from './css/create-css-rule';
 
 import config from '../../config/webpack/base';
 
@@ -52,37 +51,9 @@ const webpackConfig: Configuration = {
         test: /\.(ts|tsx)$/,
         loader: 'ts-loader',
       },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: process.env.NODE_ENV !== 'production',
-            },
-          },
-          {
-            loader: 'css-modules-typescript-loader',
-            options: {
-              mode: 'emit',
-              // mode: isOnCI ? 'verify' : 'emit',
-            },
-          },
-          {
-            loader: 'css-loader',
-            options: getCssLoaderOption({ hashOutput: false, sourceMap: true }),
-          },
-          {
-            loader: 'postcss-loader',
-            options: getPostcssOption({ sourceMap: true }),
-          },
-        ],
-      },
-      // {
-      //     test: /\.js$/,
-      //     loader: 'babel-loader',
-      //     exclude: file => /node_modules/.test(file) && !/\.js/.test(file)
-      // },
+
+      createCSSRule(/\.css$/),
+      createCSSRule(/\.less$/, 'less-loader'),
 
       // 图片资源
       {
