@@ -15,7 +15,15 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
+    // 基于 baseUrl
+    "paths": {
+      "@/*": ["./src/*"],
+      "Images/*": ["./src/images/*"],
+      "Static/*": ["./src/static/*"],
+      "Components/*": ["./src/components/*"],
+      "Layout/*": ["./src/layout/*"],
+    }
   },
   "exclude": ["node_modules", "dist"]
 }

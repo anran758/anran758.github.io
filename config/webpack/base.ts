@@ -19,8 +19,10 @@ const baseConfig: CustomConfig = {
   // 公用别名
   commonAlias: {
     '@': path.resolve(projectPaths.sourceRoot),
-    images: path.resolve(projectPaths.sourceRoot, 'images'),
-    static: path.resolve(projectPaths.sourceRoot, 'static'),
+    Images: path.resolve(projectPaths.sourceRoot, 'images'),
+    Static: path.resolve(projectPaths.sourceRoot, 'static'),
+    Components: path.resolve(projectPaths.sourceRoot, 'components'),
+    Layout: path.resolve(projectPaths.sourceRoot, 'layout'),
   },
 
   template: 'index.html',

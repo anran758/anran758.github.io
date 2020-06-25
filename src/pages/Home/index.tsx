@@ -1,5 +1,5 @@
 import React from 'react';
-import Empty from '../../components/Empty';
+import Empty from 'Components/Empty';
 
 export default () => (
   <section style={{height: '100vh'}}> 
