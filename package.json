@@ -9,7 +9,7 @@
     "lint:ts": "eslint \"{config,build,src,tools}/**/*.ts{,x}\"",
     "tsc": "tsc",
     "cz": "npx git-cz",
-    "test:prod": "npm run build && ts-node ./server.ts"
+    "test:prod": "ts-node ./server.ts"
   },
   "husky": {
     "hooks": {
