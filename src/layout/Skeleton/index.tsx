@@ -1,22 +1,21 @@
 import React from 'react';
-import { observer } from 'mobx-react';
 
-export const Skeleton = ({
-  LeftNav,
-  children,
-}: {
-  LeftNav: React.ComponentType;
-  children?: React.ReactChild;
-}) => (
-  <section>
-    <aside>{LeftNav && <LeftNav />}</aside>
-    <main>{children}</main>
+import { Nav } from './Nav';
+import { Sidebar } from './Sidebar';
+import styles from './index.less';
+
+export const Skeleton = ({ children }: { children?: React.ReactChild }) => (
+  <section className={styles.container}>
+    <Sidebar />
+    <main className={styles.main}>{children}</main>
   </section>
 );
 
-export function createSkeleton() {
-  const SkeletonImpl = (props: any) => <Skeleton {...props} />;
-  return observer(SkeletonImpl);
+export function createSkeleton(props: any) {
+  const LeftNav = () => <Nav />;
+  const SkeletonImpl = <Skeleton {...props} LeftNav={LeftNav} />;
+
+  return SkeletonImpl;
 }
 
-export default createSkeleton();
+export default createSkeleton;

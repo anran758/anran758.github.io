@@ -6,7 +6,7 @@ import Introduction from './pages/Introduction';
 import Home from './pages/Home';
 import Skeleton from './layout/Skeleton';
 
-import './global.less';
+import './styles/global.less';
 
 export const App = () => {
   return (
@@ -21,7 +21,6 @@ export const App = () => {
           </Skeleton>
         </Route>
       </Switch>
-      ;
     </Router>
   );
 };
