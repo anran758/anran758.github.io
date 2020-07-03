@@ -1,0 +1,33 @@
+@header-height: 60px;
+@header-bg-color: #fff;
+@header-gap: 24px;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: @header-height;
+  background-color: @header-bg-color;
+  padding-right: @header-gap;
+
+  &Trigger {
+    padding: 0 @header-gap;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s, padding 0s;
+  }
+}
+
+.links {
+  .link {
+    margin-left: 12px;
+    color: #1890ff;
+    font-size: 16px;
+    font-weight: bold;
+
+    &:hover,
+    &:active {
+      color: #40a9ff;
+    }
+  }
+}
