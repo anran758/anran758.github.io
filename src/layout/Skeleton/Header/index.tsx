@@ -18,7 +18,7 @@ export const Header: FC<HeaderProps> = React.memo(
   ({ collapsed = true, links = [], toggleCollapsed }) => (
     <header className={styles.header}>
       <span className={styles.headerTrigger} onClick={toggleCollapsed}>
-        {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
+        {React.createElement(collapsed ? MenuFoldOutlined : MenuUnfoldOutlined)}
       </span>
       <ul className={styles.links}>
         {links.map((item, idx) => (

@@ -1,4 +1,5 @@
 import React, { FC, memo, useEffect, useState } from 'react';
+import classnames from 'classnames';
 
 import { Nav } from '../Nav';
 import styles from './index.less';
@@ -14,6 +15,10 @@ interface UserInfoProps {
   [key: string]: any;
 }
 
+interface SidebarProps {
+  collapsed?: boolean;
+}
+
 const UserInfoArea: FC<UserInfoAreaProps> = memo(({ avatar, name = '' }) => (
   <section className={styles.avatarWrap}>
     <div
@@ -24,7 +29,7 @@ const UserInfoArea: FC<UserInfoAreaProps> = memo(({ avatar, name = '' }) => (
   </section>
 ));
 
-export const Sidebar = () => {
+export const Sidebar: React.FC<SidebarProps> = ({ collapsed = true }) => {
   const [userInfo, setUserInfo] = useState<UserInfoProps | null>(null);
 
   // 通过 Github 获取用户信息
@@ -39,9 +44,11 @@ export const Sidebar = () => {
   }, []);
 
   return (
-    <aside className={styles.sidebar}>
+    <aside
+      className={classnames(styles.sidebar, { [styles.collapsed]: !collapsed })}
+    >
       <UserInfoArea avatar={userInfo?.avatar_url} name={userInfo?.name} />
-      <Nav></Nav>
+      {collapsed && <Nav />}
     </aside>
   );
 };

@@ -27,7 +27,7 @@ export const Skeleton: FC<SkeletonProps> = ({ children }) => {
 
   return (
     <section className={styles.container}>
-      <Sidebar />
+      <Sidebar collapsed={collapsed} />
       <section className={styles.main}>
         <Header
           collapsed={collapsed}

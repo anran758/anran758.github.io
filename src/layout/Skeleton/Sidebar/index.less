@@ -1,20 +1,28 @@
 @import '../../../styles/color.less';
 
+@sidebar-width: 300px;
+
+@avatar-wrap-height: 120px;
+@avatar-size-s: 60px;
+@avatar-size-m: 80px;
+
 .sidebar {
-  width: 320px;
-  background-color: #fff;
+  width: @sidebar-width;
   border-right: 1px solid @border-color;
+  background-color: #fff;
+  transition: all 0.2s;
 }
 
 .avatarWrap {
+  height: @avatar-wrap-height;
   margin-top: 60px;
   margin-bottom: 40px;
   text-align: center;
 }
 
 .avatar {
-  width: 86px;
-  height: 86px;
+  width: @avatar-size-m;
+  height: @avatar-size-m;
   margin: auto;
   border-radius: 50%;
   background: 50% / cover;
@@ -25,4 +33,19 @@
   margin-top: 8px;
   font-size: 18px;
   font-weight: bold;
+}
+
+.collapsed {
+  width: 80px;
+
+  .avatar {
+    width: @avatar-size-s;
+    height: @avatar-size-s;
+  }
+
+  .nickname {
+    position: relative;
+    z-index: -1;
+    opacity: 1;
+  }
 }
