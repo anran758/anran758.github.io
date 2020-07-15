@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
@@ -25,6 +25,12 @@ export const Skeleton: FC<SkeletonProps> = ({ children }) => {
     setCollapsed(!collapsed);
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setCollapsed(false);
+    }, 1000);
+  }, []);
+
   return (
     <section className={styles.container}>
       <Sidebar collapsed={collapsed} />
@@ -39,6 +45,8 @@ export const Skeleton: FC<SkeletonProps> = ({ children }) => {
     </section>
   );
 };
+
+Skeleton.displayName = 'Skeleton';
 
 export function createSkeleton(props: any) {
   const SkeletonImpl = <Skeleton {...props} />;

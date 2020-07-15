@@ -3,7 +3,6 @@
 interface CssExports {
   'avatar': string;
   'avatarWrap': string;
-  'collapsed': string;
   'nickname': string;
   'sidebar': string;
 }
