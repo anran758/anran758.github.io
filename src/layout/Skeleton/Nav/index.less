@@ -1,0 +1,93 @@
+@menu-item-height: 40px;
+@menu-item-left-padding: 24px;
+@menu-item-right-padding: 16px;
+
+.menuItem,
+.submenuItem,
+.submenuTitle {
+  position: relative;
+  padding-left: @menu-item-left-padding;
+  height: @menu-item-height;
+  line-height: @menu-item-height;
+  padding-right: @menu-item-right-padding;
+  color: #252528;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(233, 233, 241, 0.5);
+    box-shadow: inset 0 0 0 1px #e9e9f1;
+  }
+
+  &.active {
+    background-color: #e9e9f1;
+  }
+
+  .icon + span {
+    opacity: 1;
+    transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  // 增加链接点击区域
+  a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+  }
+}
+
+.submenuItem {
+  padding-left: @menu-item-left-padding * 2;
+}
+
+.submenuArrow {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+}
+
+.icon {
+  margin-right: 12px;
+}
+
+.collapsed {
+  .menuItem,
+  .submenuTitle {
+    padding: 0 32px;
+
+    .icon {
+      font-size: 16px;
+    }
+
+    .icon + span {
+      display: inline-block;
+      max-width: 0;
+      opacity: 0;
+    }
+
+    .submenuArrow {
+      display: none;
+    }
+  }
+}
+
+.disabled {
+  color: rgba(0, 0, 0, 0.25) !important;
+  background: 0 0;
+  border-color: transparent !important;
+  cursor: not-allowed;
+
+  a {
+    pointer-events: none;
+  }
+}

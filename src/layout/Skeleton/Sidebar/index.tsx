@@ -46,7 +46,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed = true }) => {
   return (
     <aside className={classnames(styles.sidebar, { collapsed })}>
       <UserInfoArea avatar={userInfo?.avatar_url} name={userInfo?.name} />
-      {!collapsed && <Nav />}
+      <Nav collapsed={collapsed} />
     </aside>
   );
 };
