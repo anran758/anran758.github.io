@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState } from 'react';
+import React, { FC, memo } from 'react';
 import classnames from 'classnames';
 
 import { Nav } from '../Nav';
@@ -9,14 +9,15 @@ interface UserInfoAreaProps {
   name?: string;
 }
 
-interface UserInfoProps {
-  avatar_url: string;
+export interface UserInfoProps {
   name: string;
+  avatar_url?: string;
   [key: string]: any;
 }
 
-interface SidebarProps {
+export interface SidebarProps {
   collapsed?: boolean;
+  userInfo?: UserInfoProps;
 }
 
 const UserInfoArea: FC<UserInfoAreaProps> = memo(({ avatar, name = '' }) => (
@@ -29,20 +30,10 @@ const UserInfoArea: FC<UserInfoAreaProps> = memo(({ avatar, name = '' }) => (
   </section>
 ));
 
-export const Sidebar: React.FC<SidebarProps> = ({ collapsed = true }) => {
-  const [userInfo, setUserInfo] = useState<UserInfoProps | null>(null);
-
-  // 通过 Github 获取用户信息
-  useEffect(() => {
-    const username = 'anran758';
-
-    fetch(`https://api.github.com/users/${username}`)
-      .then((res) => res.json())
-      .then((res) => {
-        setUserInfo(res);
-      });
-  }, []);
-
+export const Sidebar: React.FC<SidebarProps> = ({
+  collapsed = true,
+  userInfo,
+}) => {
   return (
     <aside className={classnames(styles.sidebar, { collapsed })}>
       <UserInfoArea avatar={userInfo?.avatar_url} name={userInfo?.name} />
