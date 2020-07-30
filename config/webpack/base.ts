@@ -18,6 +18,7 @@ const baseConfig: CustomConfig = {
 
   // 公用别名
   commonAlias: {
+    Config: path.resolve(projectPaths.sourceRoot, '..', 'config'),
     '@': path.resolve(projectPaths.sourceRoot),
     Images: path.resolve(projectPaths.sourceRoot, 'images'),
     Static: path.resolve(projectPaths.sourceRoot, 'static'),

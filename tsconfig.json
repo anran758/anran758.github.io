@@ -19,6 +19,7 @@
     "noUnusedLocals": false,
     // 基于 baseUrl
     "paths": {
+      "Config/*": ["./config/*"],
       "@/*": ["./src/*"],
       "Images/*": ["./src/images/*"],
       "Static/*": ["./src/static/*"],
