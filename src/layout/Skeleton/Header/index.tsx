@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { BadgeButton } from '@/components/BadgeButton';
 
 import styles from './index.less';
 
@@ -11,11 +12,12 @@ interface LinkItemProps {
 interface HeaderProps {
   links?: LinkItemProps[];
   collapsed?: boolean;
+  githubRepo?: string;
   toggleCollapsed?: () => void;
 }
 
 export const Header: FC<HeaderProps> = React.memo(
-  ({ collapsed = true, links = [], toggleCollapsed }) => (
+  ({ githubRepo, collapsed = true, links = [], toggleCollapsed }) => (
     <header className={styles.header}>
       <span className={styles.headerTrigger} onClick={toggleCollapsed}>
         {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
@@ -26,6 +28,13 @@ export const Header: FC<HeaderProps> = React.memo(
             {item.label}
           </a>
         ))}
+        {githubRepo && (
+          <BadgeButton
+            className={styles.link}
+            path={`/github/stars/${githubRepo}`}
+            queryParams={{ label: 'Stars' }}
+          />
+        )}
       </ul>
     </header>
   )

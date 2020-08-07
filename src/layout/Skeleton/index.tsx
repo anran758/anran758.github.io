@@ -1,6 +1,8 @@
 import React, { FC, useState, useEffect } from 'react';
 import { observer } from 'mobx-react';
 
+import siteConf from "Config/site";
+
 import { Header } from './Header';
 import { Sidebar, UserInfoProps } from './Sidebar';
 
@@ -14,12 +16,16 @@ interface SkeletonProps {
 
 const links = [
   {
-    href: 'https://anran758.github.io/blog',
-    label: '博客',
-  },
-  {
     href: 'https://github.com/anran758',
     label: 'Github',
+  },
+  {
+    href: 'https://github.com/anran758/Front-End-Lab',
+    label: 'Front-End-Lab',
+  },
+  {
+    href: 'https://anran758.github.io/blog',
+    label: '博客',
   },
 ];
 
@@ -43,6 +49,7 @@ export const Skeleton: FC<SkeletonProps> = ({ children, userInfo }) => {
           collapsed={collapsed}
           links={links}
           toggleCollapsed={toggleCollapsed}
+          githubRepo={`${siteConf.name}/${siteConf.repoName}`}
         />
         <main className={styles.content}>{children}</main>
       </section>
