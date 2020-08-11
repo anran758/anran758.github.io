@@ -1,7 +1,7 @@
 import path from 'path';
 import { CustomConfig } from './config.d';
 
-const projectPaths: CustomConfig = {
+const basePaths = {
   // 源码目录
   sourceRoot: path.resolve(__dirname, '../../src'),
   // 构建后输出目录
@@ -11,19 +11,21 @@ const projectPaths: CustomConfig = {
 };
 
 const baseConfig: CustomConfig = {
-  ...projectPaths,
+  ...basePaths,
 
-  entry: { index: path.join(projectPaths.sourceRoot, 'index') },
+  staticDirPath: `/${basePaths.staticDir}`,
+
+  entry: { index: path.join(basePaths.sourceRoot, 'index') },
   publicPath: '/',
 
   // 公用别名
   commonAlias: {
-    Config: path.resolve(projectPaths.sourceRoot, '..', 'config'),
-    '@': path.resolve(projectPaths.sourceRoot),
-    Images: path.resolve(projectPaths.sourceRoot, 'images'),
-    Static: path.resolve(projectPaths.sourceRoot, 'static'),
-    Components: path.resolve(projectPaths.sourceRoot, 'components'),
-    Layout: path.resolve(projectPaths.sourceRoot, 'layout'),
+    Config: path.resolve(basePaths.sourceRoot, '..', 'config'),
+    '@': path.resolve(basePaths.sourceRoot),
+    Static: path.resolve(basePaths.sourceRoot, basePaths.staticDir),
+    Images: path.resolve(basePaths.sourceRoot, 'images'),
+    Components: path.resolve(basePaths.sourceRoot, 'components'),
+    Layout: path.resolve(basePaths.sourceRoot, 'layout'),
   },
 
   template: 'index.html',

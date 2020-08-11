@@ -10,6 +10,9 @@ export interface CustomConfig {
 
   /** 静态资源目录名 */
   staticDir: string;
+  
+  /** 静态资源相对目录 */
+  staticDirPath: string;
 
   // webpack 配置
   entry?: Configuration['entry'];

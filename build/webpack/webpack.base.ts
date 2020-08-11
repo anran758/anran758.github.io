@@ -2,6 +2,7 @@ import path from 'path';
 import { Configuration } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import webpack from 'webpack';
 
 import { createCSSRule } from './css/create-css-rule';
 
@@ -96,6 +97,9 @@ const webpackConfig: Configuration = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      PUBLIC_URL: JSON.stringify(config.staticDirPath),
+    }),
     // 将 CSS 提取到单独的文件
     // https://github.com/webpack-contrib/mini-css-extract-plugin
     new MiniCssExtractPlugin({

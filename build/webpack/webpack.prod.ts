@@ -38,12 +38,7 @@ const webpackProdConf: webpack.Configuration = {
       new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.optimize\.css$/g,
         cssProcessorPluginOptions: {
-          preset: [
-            'default',
-            {
-              discardComments: { removeAll: true },
-            },
-          ],
+          preset: ['default', { discardComments: { removeAll: true } }],
         },
         canPrint: true,
       }),

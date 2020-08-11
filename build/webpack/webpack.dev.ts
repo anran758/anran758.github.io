@@ -13,9 +13,10 @@ const webpackDevConf: Configuration = {
   mode: 'development',
   devtool: 'source-map',
   devServer: {
-    // contentBase: config.buildRoot,
+    contentBase: config.buildRoot,
     compress: false,
     open: false,
+    host: '0.0.0.0',
     ...config.devServer,
   },
   plugins: [
