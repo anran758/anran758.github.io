@@ -21,6 +21,8 @@ export function createCSSRule(
       },
     },
     // 自动给样式文件生成 .d.ts 文件
+    // FIXME: 目前只会给页面有使用过的组件生成 .d.ts 文件。
+    //        实际期望应该是项目内组件都会自动生成与更新
     {
       loader: 'css-modules-typescript-loader',
       options: {

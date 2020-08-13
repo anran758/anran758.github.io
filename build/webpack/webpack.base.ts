@@ -47,14 +47,14 @@ const webpackConfig: Configuration = {
   externals: config.externals,
   module: {
     rules: [
+      createCSSRule(/\.css$/),
+      createCSSRule(/\.less$/, 'less-loader'),
+
       {
         // https://github.com/TypeStrong/ts-loader
         test: /\.(ts|tsx)$/,
         loader: 'ts-loader',
       },
-
-      createCSSRule(/\.css$/),
-      createCSSRule(/\.less$/, 'less-loader'),
 
       // 图片资源
       {
