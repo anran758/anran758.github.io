@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { stringify } from 'query-string';
 
-interface BadgeUrlFromPathProps {
+export interface BadgeUrlFromPathProps {
   path: string;
   baseUrl?: string;
   queryParams?: { [k: string]: string | number | boolean };
@@ -10,8 +10,12 @@ interface BadgeUrlFromPathProps {
   longCache?: boolean;
 }
 
-interface Props extends Omit<BadgeUrlFromPathProps, ''> {
+export interface Props extends Omit<BadgeUrlFromPathProps, ''> {
   className?: string;
+}
+
+interface StaticComponents {
+  badgeUrlFromPath: (props: BadgeUrlFromPathProps) => string;
 }
 
 export function badgeUrlFromPath({
@@ -39,7 +43,7 @@ export function badgeUrlFromPath({
  *
  * @desc 使用 shields 的服务: https://shields.io/category/social
  */
-export const BadgeButton: FC<Props> = ({
+export const BadgeButton: FC<Props> & StaticComponents = ({
   path,
   baseUrl = 'https://img.shields.io',
   queryParams,
@@ -54,4 +58,5 @@ export const BadgeButton: FC<Props> = ({
   );
 };
 
+BadgeButton.badgeUrlFromPath = badgeUrlFromPath;
 BadgeButton.displayName = 'BadgeButton';

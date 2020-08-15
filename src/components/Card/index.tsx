@@ -4,9 +4,10 @@ import classnames from 'classnames';
 import styles from './index.less';
 
 export interface CardProps {
-  style?: React.CSSProperties;
   title?: string;
   className?: string;
+  style?: React.CSSProperties;
+  bodyStyle?: React.CSSProperties;
 }
 
 export interface GraffitiTitleProps {
@@ -27,14 +28,14 @@ export const GraffitiTitle: FC<GraffitiTitleProps> = memo(({ text }) => {
 /**
  * 卡片容器
  */
-export const Card: FC<CardProps> = ({ title, children, style, className }) => (
+export const Card: FC<CardProps> = ({ title, children, style, bodyStyle ,className }) => (
   <section className={classnames(styles.card, className)} style={style}>
     {title ? (
       <header className={styles.cardHeader}>
         {title ? <GraffitiTitle text={title} /> : null}
       </header>
     ) : null}
-    <main>{children}</main>
+    <main style={bodyStyle}>{children}</main>
   </section>
 );
 
