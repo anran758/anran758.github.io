@@ -33,9 +33,9 @@ export const Row: FC<RowProps> = ({
   const classes = classNames(
     styles.row,
     {
-      [`${styles.row}-justify-${justify}`]: justify,
-      [`${styles.row}-align-${align}`]: align,
-      [`${styles.row}-center`]: center,
+      [styles[`row-justify-${justify}`]]: justify,
+      [styles[`row-align-${align}`]]: align,
+      [styles['row-center']]: center,
     },
     className
   );

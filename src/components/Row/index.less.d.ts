@@ -2,15 +2,15 @@
 // Please do not change this file!
 interface CssExports {
   'row': string;
-  'rowAlignBottom': string;
-  'rowAlignMiddle': string;
-  'rowAlignTop': string;
-  'rowCenter': string;
-  'rowJustifyCenter': string;
-  'rowJustifyEnd': string;
-  'rowJustifySpaceAround': string;
-  'rowJustifySpaceBetween': string;
-  'rowJustifyStart': string;
+  'row-align-bottom': string;
+  'row-align-middle': string;
+  'row-align-top': string;
+  'row-center': string;
+  'row-justify-center': string;
+  'row-justify-end': string;
+  'row-justify-space-around': string;
+  'row-justify-space-between': string;
+  'row-justify-start': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

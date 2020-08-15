@@ -38,7 +38,7 @@ export function createCSSRule(
           context: resolve(__dirname, '..', '..', '..', 'src'),
           localIdentName,
         },
-        localsConvention: 'camelCaseOnly',
+        // localsConvention: 'camelCaseOnly',
         importLoaders: 0,
         sourceMap: true,
       },
