@@ -4,14 +4,18 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![GitHub](https://img.shields.io/github/license/anran758/anran758.github.io)](https://github.com/anran758/anran758.github.io/blob/master/LICENSE)
 
-> Web Demo 展示页
+配置式展示个人相关数据与 web 功能实现后的 demo。
 
 ## TDDO
 
-- [ ] 完成 Demo 页基础骨架
-- [ ] 使用 `mobx` 进行数据管理
+- [x] 使用 `mobx` 进行数据管理
+- [ ] Demo 展示框架
+- [ ] 完成 “数据概况” 页
+- [ ] 菜单组件完善
 - [ ] 支持配置路由
-- [ ] 完成“数据概况”页
+- [ ] 支持响应式
+- [ ] 页面交互优化(loading，错误提示等)
+- [ ] 单元测试
 
 ## start
 
