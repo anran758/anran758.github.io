@@ -212,7 +212,7 @@ export const Nav: FC<NavProps> = ({ collapsed = false }) => {
       id: 'dashboard',
       label: '数据预览',
       icon: StockOutlined,
-      path: { pathname: '/content' },
+      path: { pathname: '/' },
     },
     {
       id: 'layout',

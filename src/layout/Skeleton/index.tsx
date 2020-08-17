@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import { observer } from 'mobx-react';
 
-import siteConf from "Config/site";
+import siteConf from 'Config/site';
 
 import { Header } from './Header';
 import { Sidebar, UserInfoProps } from './Sidebar';
@@ -18,14 +18,22 @@ const links = [
   {
     href: 'https://github.com/anran758',
     label: 'Github',
-  },
-  {
-    href: 'https://github.com/anran758/Front-End-Lab',
-    label: 'Front-End-Lab',
+    newTab: true,
   },
   {
     href: 'https://anran758.github.io/blog',
     label: '博客',
+    newTab: true,
+  },
+  {
+    label: '知乎专栏',
+    href: 'https://zhuanlan.zhihu.com/c_1147180666474176512',
+    newTab: true,
+  },
+  {
+    href: 'https://github.com/anran758/Front-End-Lab',
+    label: '知识速查库',
+    newTab: true,
   },
 ];
 

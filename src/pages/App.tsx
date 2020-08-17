@@ -11,13 +11,13 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact>
+        <Route path="/cover" exact>
           <Introduction />
         </Route>
-        <Route path="/content">
+        <Route path="/">
           <Skeleton>
             <Switch>
-              <Route path="/content" exact component={Dashboard} />
+              <Route path="/" exact component={Dashboard} />
               <Route path="*" component={NoMatch} />
             </Switch>
           </Skeleton>
