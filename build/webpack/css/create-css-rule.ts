@@ -37,6 +37,21 @@ export function createCSSRule(
           mode: 'local',
           context: resolve(__dirname, '..', '..', '..', 'src'),
           localIdentName,
+          getLocalIdent: (
+            context: { resourcePath: string },
+            _: string,
+            localName: string
+          ) => {
+            if (
+              context.resourcePath.includes('node_modules') ||
+              context.resourcePath.match(/global\.(c|le)ss$/) ||
+              context.resourcePath.includes('src/Demos')
+            ) {
+              return localName;
+            }
+
+            return undefined;
+          },
         },
         // localsConvention: 'camelCaseOnly',
         importLoaders: 0,
