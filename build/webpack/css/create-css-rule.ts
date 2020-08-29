@@ -3,26 +3,24 @@ import { resolve } from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { getPostcssOption } from './postcss-options';
+import { isProd } from '../../utils/env';
 
 export function createCSSRule(
   test: RuleSetCondition,
   loader?: string,
   options?: RuleSetQuery
 ) {
-  const isProd = process.env.NODE_ENV === 'production';
-  const localIdentName = isProd ? '[hash:base64]' : '[path][name]__[local]';
+  const localIdentName = isProd() ? '[hash:base64]' : '[path][name]__[local]';
 
   // 默认配置
   const use: RuleSetUse = [
     {
       loader: MiniCssExtractPlugin.loader,
       options: {
-        hmr: !isProd,
+        hmr: !isProd(),
       },
     },
     // 自动给样式文件生成 .d.ts 文件
-    // FIXME: 目前只会给页面有使用过的组件生成 .d.ts 文件。
-    //        实际期望应该是项目内组件都会自动生成与更新
     {
       loader: 'css-modules-typescript-loader',
       options: {
@@ -38,14 +36,18 @@ export function createCSSRule(
           context: resolve(__dirname, '..', '..', '..', 'src'),
           localIdentName,
           getLocalIdent: (
-            context: { resourcePath: string },
+            context: {
+              resourcePath: string;
+              resourceQuery: string;
+            },
             _: string,
             localName: string
           ) => {
             if (
               context.resourcePath.includes('node_modules') ||
               context.resourcePath.match(/global\.(c|le)ss$/) ||
-              context.resourcePath.includes('src/Demos')
+              context.resourcePath.includes('src/Demos') ||
+              context.resourceQuery.match(/normal/)
             ) {
               return localName;
             }

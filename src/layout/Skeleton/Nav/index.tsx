@@ -28,6 +28,7 @@ export const Nav: FC<NavProps> = ({ collapsed = false }) => {
       menuData={menuData}
       collapsed={collapsed}
       selectedKeys={selectedKeys}
+      defaultOpenKeys={['/preview']}
     />
   );
 };

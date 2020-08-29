@@ -23,10 +23,20 @@ export function renderRoutes(
 
             if (route.component) {
               return (
-                <route.component {...props} {...extraProps} route={route}>
+                <route.component
+                  {...props}
+                  {...extraProps}
+                  meta={route.meta || {}}
+                  route={route}
+                >
                   {route.routes?.length ? renderRoutes(route.routes) : null}
                 </route.component>
               );
+            }
+
+            // 子页面渲染
+            if (route.routes) {
+              return renderRoutes(route.routes);
             }
 
             return null;

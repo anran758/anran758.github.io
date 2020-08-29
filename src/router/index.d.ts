@@ -4,6 +4,7 @@ export interface RouteConfigComponentProps<
   Params extends { [K in keyof Params]?: string } = {}
 > extends RouteComponentProps<Params> {
   route?: RouteConfig;
+  meta?: { [metaKey: string]: any };
 }
 
 export interface RouteConfig {
@@ -17,5 +18,6 @@ export interface RouteConfig {
   strict?: boolean;
   routes?: RouteConfig[];
   render?: (props: RouteConfigComponentProps<any>) => React.ReactNode;
+  meta?: { [metaKey: string]: any };
   [propName: string]: any;
 }

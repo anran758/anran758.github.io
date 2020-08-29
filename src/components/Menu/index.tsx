@@ -90,7 +90,7 @@ export const MenuConfigContainer: FC<MenuConfigContainerProps> = (props) => {
         <MenuItem
           active={selectedKeys?.includes(currentPath)}
           disabledTips={data.disabledTips || '正在开发中...'}
-          style={{ paddingLeft: 24 * level }}
+          style={level === 1 ? {} : { paddingLeft: 24 * level }}
           {...data}
           key={key}
         />

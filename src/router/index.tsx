@@ -2,12 +2,14 @@ import React from 'react';
 import Skeleton from '@/layout/Skeleton';
 import Introduction from '@/layout/Introduction';
 import {
+  TagOutlined,
   StockOutlined,
   LayoutOutlined,
   BulbOutlined,
 } from '@ant-design/icons';
 
 import Dashboard from '@/pages/Dashboard';
+import Preview from '@/pages/Preview';
 import NoMatch from '@/pages/NoMatch';
 
 import { RouteConfig } from './index.d';
@@ -57,8 +59,21 @@ export const routes: RouteConfig[] = [
         routes: [
           {
             name: 'Button',
-            path: '/content/ui/button',
+            path: '/ui/button',
             disabled: true,
+          },
+        ],
+      },
+      {
+        name: 'Demo',
+        path: '/preview',
+        icon: TagOutlined,
+        routes: [
+          {
+            name: 'Flex 布局',
+            path: '/preview/flex',
+            meta: { path: 'demos/flex/' },
+            component: Preview,
           },
         ],
       },
