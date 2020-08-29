@@ -6,30 +6,34 @@ import conf from 'Config/site';
 
 import { Posts, OptionItem } from './components/Posts';
 
-const { WorkingCard } = Empty;
-
-const fetchRss = async (limit?: number) => {
+/**
+ * 获取博客 RSS 数据
+ */
+const fetchRSS = async (limit?: number) => {
   const parser = new Parser();
   const { items = [] } = await parser.parseURL(conf.blogRSS);
 
-  let result = items.map((item) => ({
+  const result = items.map((item) => ({
     link: item.link || '',
     linkText: item.title || '',
     date: item.isoDate,
   }));
 
   if (limit) {
-    result = result.slice(0, limit);
+    return result.slice(0, limit);
   }
 
   return result;
 };
 
-export default () => {
+/**
+ * 数据预览页
+ */
+const Dashboard: React.FC = () => {
   const [latestPosts, setLatestPosts] = useState<OptionItem[]>([]);
 
   useEffect(() => {
-    fetchRss(10).then((list) => {
+    fetchRSS(10).then((list) => {
       console.log(list);
       setLatestPosts(list);
     });
@@ -45,9 +49,11 @@ export default () => {
           style={{ width: '50%', marginLeft: 16 }}
           bodyStyle={{ height: '100%' }}
         >
-          <WorkingCard />
+          <Empty.WorkingCard />
         </Card>
       </Row>
     </section>
   );
 };
+
+export default Dashboard;

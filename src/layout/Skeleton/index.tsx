@@ -71,7 +71,7 @@ export function createSkeleton() {
   const store = new SkeletonStore();
   store.initUserInfo();
 
-  const SkeletonImpl = (props: SkeletonProps) => (
+  const SkeletonImpl: FC<SkeletonProps> = (props) => (
     <Skeleton userInfo={store.githubUserInfo} {...props} />
   );
 
