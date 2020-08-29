@@ -2,7 +2,7 @@ import { Configuration, Output, Resolve, BannerPlugin } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export interface CustomConfig {
-  /** 源码路径 */
+  /** 源码绝对路径 */
   sourceRoot: string;
 
   /** 构建后的输出目录 */
@@ -10,9 +10,6 @@ export interface CustomConfig {
 
   /** 静态资源目录名 */
   staticDir: string;
-  
-  /** 静态资源相对目录 */
-  staticDirPath: string;
 
   // webpack 配置
   entry?: Configuration['entry'];

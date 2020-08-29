@@ -98,7 +98,7 @@ const webpackConfig: Configuration = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      PUBLIC_URL: JSON.stringify(config.staticDirPath),
+      PUBLIC_URL: JSON.stringify(`/${config.staticDir}`),
     }),
     // 将 CSS 提取到单独的文件
     // https://github.com/webpack-contrib/mini-css-extract-plugin
@@ -114,6 +114,11 @@ const webpackConfig: Configuration = {
         {
           from: path.join(config.sourceRoot, config.staticDir),
           to: path.join(config.buildRoot, config.staticDir),
+          toType: 'dir',
+        },
+        {
+          from: path.join(config.sourceRoot, 'demos'),
+          to: path.join(config.buildRoot, 'demos'),
           toType: 'dir',
         },
         getCopyRootFileOpt('README.md'),

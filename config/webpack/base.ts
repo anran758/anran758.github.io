@@ -1,7 +1,7 @@
 import path from 'path';
 import { CustomConfig } from './config.d';
 
-const basePaths = {
+export const basePaths = {
   // 源码目录
   sourceRoot: path.resolve(__dirname, '../../src'),
   // 构建后输出目录
@@ -10,10 +10,8 @@ const basePaths = {
   staticDir: 'static',
 };
 
-const baseConfig: CustomConfig = {
+export const baseConfig: CustomConfig = {
   ...basePaths,
-
-  staticDirPath: `/${basePaths.staticDir}`,
 
   entry: { index: path.join(basePaths.sourceRoot, 'index') },
   publicPath: '/',
@@ -35,18 +33,6 @@ const baseConfig: CustomConfig = {
   favicon: '',
 
   banner: 'Copyright (c) 2020-present anran758',
-
-  // cdn 配置
-  // cdn: {
-  //   accessKey: '',
-  //   secretKey: '',
-  //   bucket: '',
-  //   origin: '',
-  //   uploadURL: '',
-  // },
-
-  // 要打包的外部资源库
-  library: ['react'],
 };
 
 export default baseConfig;
