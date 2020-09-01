@@ -102,6 +102,7 @@ const webpackConfig: Configuration = {
     new webpack.DefinePlugin({
       PUBLIC_URL: JSON.stringify(`/${config.staticDir}`),
       GOOGLE_TRACKING_ID: JSON.stringify(site.googleAnalytics.trackingId),
+      BAIDU_TRACKING: JSON.stringify(site.baiduAnalytics),
     }),
     // 将 CSS 提取到单独的文件
     // https://github.com/webpack-contrib/mini-css-extract-plugin

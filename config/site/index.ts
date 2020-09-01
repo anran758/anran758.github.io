@@ -11,6 +11,10 @@ export default {
   // 谷歌统计
   // https://analytics.google.com/analytics/web
   googleAnalytics: {
-    trackingId: "UA-99223334-3"
+    trackingId: 'UA-99223334-3',
   },
+
+  // Baidu Analytics
+  // https://tongji.baidu.com/sc-web
+  baiduAnalytics: '980509209acfec28d310870b2b9d9b61',
 };
