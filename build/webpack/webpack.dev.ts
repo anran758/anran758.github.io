@@ -1,7 +1,6 @@
 import webpack, { Configuration } from 'webpack';
 import merge from 'webpack-merge';
 
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
@@ -20,13 +19,6 @@ const webpackDevConf: Configuration = {
     ...config.devServer,
   },
   plugins: [
-    // 可简化 HTML 文件的创建
-    // https://github.com/jantimon/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: config.template,
-      favicon: config.favicon,
-    }),
 
     // 强制要求 webpack 区分大小写
     // 缓解有些操作系统需要正确使用大小写而应发冲突的情况

@@ -10,14 +10,14 @@ export function createCSSRule(
   loader?: string,
   options?: RuleSetQuery
 ) {
-  const localIdentName = isProd() ? '[hash:base64]' : '[path][name]__[local]';
+  const localIdentName = isProd ? '[hash:base64]' : '[path][name]__[local]';
 
   // 默认配置
   const use: RuleSetUse = [
     {
       loader: MiniCssExtractPlugin.loader,
       options: {
-        hmr: !isProd(),
+        hmr: !isProd,
       },
     },
     // 自动给样式文件生成 .d.ts 文件

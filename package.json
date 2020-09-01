@@ -4,7 +4,7 @@
   "description": "home page",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=develop webpack-dev-server --config ./build/webpack/webpack.dev.ts",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack/webpack.dev.ts",
     "build": "cross-env NODE_ENV=production ts-node ./build/webpack/build.ts",
     "lint:ts": "eslint \"{config,build,src,tools}/**/*.ts{,x}\"",
     "tsc": "tsc",

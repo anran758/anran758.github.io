@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import merge from 'webpack-merge';
 
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
@@ -74,19 +73,6 @@ const webpackProdConf: webpack.Configuration = {
     },
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: config.template,
-      inject: true,
-      // 目前直接将 favicon 嵌入模板
-      // favicon: config.favicon,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true,
-      },
-    }),
-
     // 根据模块的相对路径生成一个四位数的hash作为模块id
     // https://webpack.js.org/plugins/hashed-module-ids-plugin/
     new webpack.HashedModuleIdsPlugin(),

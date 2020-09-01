@@ -1,10 +1,11 @@
 import path from 'path';
-import { Configuration } from 'webpack';
+import merge from 'webpack-merge';
+import webpack, { Configuration } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import webpack from 'webpack';
 
 import { createCSSRule } from './css/create-css-rule';
+import { getHtmlWebpackPlugin } from './getHtml';
 
 import config from '../../config/webpack/base';
 
@@ -140,4 +141,4 @@ const webpackConfig: Configuration = {
   },
 };
 
-export default webpackConfig;
+export default merge(webpackConfig, getHtmlWebpackPlugin());

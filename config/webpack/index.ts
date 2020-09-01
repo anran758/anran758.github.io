@@ -4,9 +4,9 @@ import { CustomConfig } from './config.d';
 import { baseConfig } from './base';
 
 export function getWebpackConf(): CustomConfig {
-  const { NODE_DEV } = process.env;
+  const { NODE_ENV } = process.env;
 
-  switch (NODE_DEV) {
+  switch (NODE_ENV) {
     case 'development':
       return devConf;
     case 'production':
