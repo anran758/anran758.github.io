@@ -23,6 +23,17 @@
   <meta property="article:author" content="anran758">
   <meta property="article:tag" content="前端、前端开发、JavaScript、vue、react、小程序开发、数据可视化">
   <meta name="twitter:card" content="summary">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= GOOGLE_TRACKING_ID %>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', '<%= GOOGLE_TRACKING_ID %>');
+  </script>
+
 </head>
 <body>
   <div id="root"></div>

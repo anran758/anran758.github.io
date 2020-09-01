@@ -8,6 +8,7 @@ import { createCSSRule } from './css/create-css-rule';
 import { getHtmlWebpackPlugin } from './getHtml';
 
 import config from '../../config/webpack/base';
+import site from '../../config/site';
 
 /**
  * 生成相对资源目录的路径
@@ -100,6 +101,7 @@ const webpackConfig: Configuration = {
   plugins: [
     new webpack.DefinePlugin({
       PUBLIC_URL: JSON.stringify(`/${config.staticDir}`),
+      GOOGLE_TRACKING_ID: JSON.stringify(site.googleAnalytics.trackingId),
     }),
     // 将 CSS 提取到单独的文件
     // https://github.com/webpack-contrib/mini-css-extract-plugin
