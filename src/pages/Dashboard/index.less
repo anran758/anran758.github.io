@@ -1,0 +1,15 @@
+@gap: 16px;
+
+.container {
+  display: grid;
+  height: 100%;
+  grid-gap: @gap;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+// .card {}
+.column {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: @gap;
+}

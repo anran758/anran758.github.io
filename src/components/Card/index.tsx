@@ -35,7 +35,7 @@ export const Card: FC<CardProps> = ({ title, children, style, bodyStyle ,classNa
         {title ? <GraffitiTitle text={title} /> : null}
       </header>
     ) : null}
-    <main style={bodyStyle}>{children}</main>
+    <main className={styles.cardInner} style={bodyStyle}>{children}</main>
   </section>
 );
 
