@@ -1,12 +1,21 @@
 {
+  // 编译选项
   "compilerOptions": {
-    "strict": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "target": "es5",
-    "jsx": "react",
+    // 解析非相对模块名的基准目录
     "baseUrl": "./",
+    // 启用所有严格类型检查选项
+    "strict": true,
+    // 指定生成哪个模块系统代码
+    "module": "commonjs",
+    // 决定如何处理模块
+    "moduleResolution": "node",
+    // 指定ECMAScript目标版本
+    "target": "es5",
+    // 支持 jsx
+    "jsx": "react",
+    // 启用实验性的ES装饰器。
     "experimentalDecorators": true,
+    // 忽略所有的声明文件（ *.d.ts）的类型检查。
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "sourceMap": true,
@@ -17,7 +26,7 @@
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": false,
-    // 基于 baseUrl
+    // 指定要相对于 baseUrl 选项计算的路径映射
     "paths": {
       "Config/*": ["./config/*"],
       "@/*": ["./src/*"],
@@ -27,5 +36,6 @@
       "Layout/*": ["./src/layout/*"],
     }
   },
+  // 排除文件
   "exclude": ["node_modules", "dist"]
 }
