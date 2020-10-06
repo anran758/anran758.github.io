@@ -1,11 +1,10 @@
 /*! Copyright (c) 2020-present anran758 */
-.pages-Etrance-index__introduction {
+._-IJql67N9CG_fq_I6R2W {
   margin: 0;
   color: #fff;
   font-size: 14px;
   line-height: 1.8em;
   letter-spacing: 0.1em;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
   text-align: center;
   background-color: #13316d;
   background-size: 100% auto;
@@ -14,34 +13,34 @@
 }
 
 @media screen and (min-width: 769px) {
-  .pages-Etrance-index__introduction {
+  ._-IJql67N9CG_fq_I6R2W {
     background-color: #213e78;
     background-image: url(/static/img/bg_pc.68cc9533.jpg);
     background-size: 50% auto;
   }
 }
 
-.pages-Etrance-index__container {
+._1t8KLse-fgdM7C3ftq_XDl {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.pages-Etrance-index__card {
+._1U8KKJlW_TeJVhiq_sZdEX {
   margin-top: -10em;
 }
 
-.pages-Etrance-index__name {
+._3FbH3cUz-L6UJHpPIVAa1K {
   font-size: 2em;
 }
 
-.pages-Etrance-index__desc {
+._3ncUAB6AMuG_04OkUXbpQZ {
   font-size: 0.8em;
   color: rgba(255, 255, 255, 0.7);
 }
 
-.pages-Etrance-index__nav {
+._2yBVT0v0BFSPLDuaqy-cm7 {
   display: flex;
   font-size: 1.2em;
   line-height: 1;
@@ -49,44 +48,12 @@
   color: #40a9ff;
 }
 
-.pages-Etrance-index__navItem {
+.CKjij9bL4ZpU9-fgfyA1w {
   position: relative;
   padding: 0 16px;
 }
 
-.pages-Etrance-index__navItem + .pages-Etrance-index__navItem {
+.CKjij9bL4ZpU9-fgfyA1w + .CKjij9bL4ZpU9-fgfyA1w {
   border-left: 2px solid #fff;
-}
-
-html {
-  font-size: 14px;
-}
-
-body {
-  padding: 0;
-  margin: 0;
-}
-
-p {
-  margin: 0;
-}
-
-a,
-a:link,
-a:link:active,
-a:visited:active,
-a:visited,
-a:active {
-  color: unset;
-  text-decoration: unset;
-}
-
-li {
-  display: block;
-}
-
-ul {
-  margin: unset;
-  padding: unset;
 }
 
