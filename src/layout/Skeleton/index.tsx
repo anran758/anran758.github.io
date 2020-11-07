@@ -22,7 +22,7 @@ const links = [
   },
   {
     href: 'https://anran758.github.io/blog',
-    label: '博客',
+    label: 'Blog',
     newTab: true,
   },
   {

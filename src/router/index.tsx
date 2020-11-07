@@ -1,10 +1,9 @@
-import React from 'react';
 import Skeleton from '@/layout/Skeleton';
 import Introduction from '@/layout/Introduction';
 import {
-  TagOutlined,
+  // TagOutlined,
   StockOutlined,
-  LayoutOutlined,
+  // LayoutOutlined,
   BulbOutlined,
 } from '@ant-design/icons';
 
@@ -35,44 +34,58 @@ export const routes: RouteConfig[] = [
         component: Dashboard,
         icon: StockOutlined,
       },
-      {
-        path: '/layout',
-        name: '布局',
-        icon: LayoutOutlined,
-        routes: [
-          {
-            path: '/layout/1',
-            name: '圣杯布局',
-            disabled: true,
-          },
-          {
-            path: '/layout/flex',
-            name: 'Flexbox',
-            disabled: true,
-          },
-        ],
-      },
-      {
-        name: 'UI',
-        path: '/ui',
-        icon: BulbOutlined,
-        routes: [
-          {
-            name: 'Button',
-            path: '/ui/button',
-            disabled: true,
-          },
-        ],
-      },
+      // {
+      //   path: '/layout',
+      //   name: '布局',
+      //   icon: LayoutOutlined,
+      //   routes: [
+      //     {
+      //       path: '/layout/1',
+      //       name: '圣杯布局',
+      //       disabled: true,
+      //     },
+      //     {
+      //       path: '/layout/flex',
+      //       name: 'Flexbox',
+      //       disabled: true,
+      //     },
+      //   ],
+      // },
+      // {
+      //   name: 'UI',
+      //   path: '/ui',
+      //   icon: BulbOutlined,
+      //   routes: [
+      //     {
+      //       name: 'Button',
+      //       path: '/ui/button',
+      //       disabled: true,
+      //     },
+      //   ],
+      // },
       {
         name: 'Demo',
         path: '/preview',
-        icon: TagOutlined,
+        icon: BulbOutlined,
         routes: [
           {
             name: 'Flex 布局',
             path: '/preview/flex',
             meta: { path: 'demos/flex/' },
+            component: Preview,
+          },
+          {
+            name: '时钟',
+            path: '/preview/canvas-clock',
+            meta: { path: 'https://anran758.github.io/Demo/Canvas/clock/' },
+            component: Preview,
+          },
+          {
+            name: 'FullScreenSlider',
+            path: '/preview/full-screen',
+            meta: {
+              path: 'https://anran758.github.io/Demo/Page/FullScreenSlider/',
+            },
             component: Preview,
           },
         ],
