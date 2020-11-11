@@ -64,7 +64,7 @@ export const routes: RouteConfig[] = [
       //   ],
       // },
       {
-        name: 'Demo',
+        name: 'Demos',
         path: '/preview',
         icon: BulbOutlined,
         routes: [
@@ -75,16 +75,32 @@ export const routes: RouteConfig[] = [
             component: Preview,
           },
           {
-            name: '时钟',
+            name: 'Canvas 时钟',
             path: '/preview/canvas-clock',
-            meta: { path: 'https://anran758.github.io/Demo/Canvas/clock/' },
+            meta: { path: 'https://anran758.github.io/demos/Canvas/clock/' },
             component: Preview,
           },
           {
-            name: 'FullScreenSlider',
+            name: '全屏轮播页',
             path: '/preview/full-screen',
             meta: {
-              path: 'https://anran758.github.io/Demo/Page/FullScreenSlider/',
+              path: 'https://anran758.github.io/demos/pages/full-screen-slider',
+            },
+            component: Preview,
+          },
+          {
+            name: '图片预加载',
+            path: '/preview/progress-bar',
+            meta: {
+              path: 'https://anran758.github.io/demos/progress-bar',
+            },
+            component: Preview,
+          },
+          {
+            name: 'jquery-todo',
+            path: '/preview/jquery-todo',
+            meta: {
+              path: 'https://anran758.github.io/jquery-todo/',
             },
             component: Preview,
           },
