@@ -71,7 +71,7 @@ export const routes: RouteConfig[] = [
           {
             name: 'Flex 布局',
             path: '/preview/flex',
-            meta: { path: 'demos/flex/' },
+            meta: { path: 'examples/flex/' },
             component: Preview,
           },
           {

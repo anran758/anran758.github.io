@@ -13,6 +13,7 @@ p {
 .panels {
   display: flex;
   min-height: 100vh;
+  width: 100%;
   overflow: hidden;
 }
 

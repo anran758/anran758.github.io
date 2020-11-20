@@ -7,10 +7,11 @@ export interface CustomConfig {
 
   /** 构建后的输出目录 */
   buildRoot: string;
-
+  
   /** 静态资源目录名 */
   staticDir: string;
-
+  demosDir: string;
+  
   // webpack 配置
   entry?: Configuration['entry'];
   devtool?: Configuration['devtool'];

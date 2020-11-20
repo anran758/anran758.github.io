@@ -4,6 +4,9 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { getPostcssOption } from './postcss-options';
 import { isProd } from '../../utils/env';
+import { getWebpackConf } from '../../../config/webpack';
+
+const config = getWebpackConf();
 
 export function createCSSRule(
   test: RuleSetCondition,
@@ -46,7 +49,7 @@ export function createCSSRule(
             if (
               context.resourcePath.includes('node_modules') ||
               context.resourcePath.match(/global\.(c|le)ss$/) ||
-              context.resourcePath.includes('src/Demos') ||
+              context.resourcePath.includes(`src/${config.demosDir}`) ||
               context.resourceQuery.match(/normal/)
             ) {
               return localName;

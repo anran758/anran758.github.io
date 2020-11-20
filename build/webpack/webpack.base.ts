@@ -121,8 +121,8 @@ const webpackConfig: Configuration = {
           toType: 'dir',
         },
         {
-          from: path.join(config.sourceRoot, 'demos'),
-          to: path.join(config.buildRoot, 'demos'),
+          from: path.join(config.sourceRoot, config.demosDir),
+          to: path.join(config.buildRoot, config.demosDir),
           toType: 'dir',
         },
         getCopyRootFileOpt('README.md'),

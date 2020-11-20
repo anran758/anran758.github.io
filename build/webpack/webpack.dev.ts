@@ -15,7 +15,6 @@ const webpackDevConf: Configuration = {
     contentBase: config.buildRoot,
     compress: false,
     open: false,
-    host: '0.0.0.0',
     ...config.devServer,
   },
   plugins: [

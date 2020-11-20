@@ -8,6 +8,7 @@ export const basePaths = {
   buildRoot: path.resolve(__dirname, '../../dist'),
   // 静态资源根目录
   staticDir: 'static',
+  demosDir: 'examples',
 };
 
 export const baseConfig: CustomConfig = {
