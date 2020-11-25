@@ -104,6 +104,14 @@ export const routes: RouteConfig[] = [
             },
             component: Preview,
           },
+          {
+            name: 'React DnD example',
+            path: '/preview/react-dnd-example',
+            meta: {
+              path: 'https://anran758.github.io/react-todos/',
+            },
+            component: Preview,
+          },
         ],
       },
       {
