@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Parser from 'rss-parser';
 
-import { Empty, Row, Card } from '@/components';
+import { Empty, Card } from '@/components';
+import { List as SkeletonList } from '@/components/Skeleton/List';
 import conf from 'Config/site';
 
 import { Posts, OptionItem } from './components/Posts';
 
 import styles from './index.less';
+
+const DATA_SIZE = 12;
 
 const recommendList = [
   {
@@ -75,20 +78,29 @@ const fetchRSS = async (limit?: number) => {
  * 数据预览页
  */
 const Dashboard: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const [latestPosts, setLatestPosts] = useState<OptionItem[]>([]);
 
   useEffect(() => {
-    fetchRSS(12).then((list) => {
-      console.log(list);
-      setLatestPosts(list);
-    });
+    setLoading(true);
+    fetchRSS(DATA_SIZE)
+      .finally(() => {
+        setLoading(false);
+      })
+      .then((list) => {
+        console.log(list);
+        setLatestPosts(list);
+      });
   }, []);
 
   return (
     <section className={styles.container}>
       <Card title="最近文章">
-        <Posts options={latestPosts} />
+        <SkeletonList loading={loading} size={DATA_SIZE}>
+          <Posts options={latestPosts} />
+        </SkeletonList>
       </Card>
+
       <section className={styles.column}>
         <Card title="推荐阅读">
           <Posts options={recommendList} />
@@ -97,6 +109,7 @@ const Dashboard: React.FC = () => {
           <Posts options={toolsList} />
         </Card>
       </section>
+
       <Card style={{ height: 300 }}>
         <Empty.WorkingCard />
       </Card>
