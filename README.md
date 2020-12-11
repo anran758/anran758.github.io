@@ -16,10 +16,18 @@ Tips: 目前调用的 API 大多都是 Github 的服务，因此国内用户访�
 - [ ] 完成 “数据概况” 页
 - [ ] 菜单组件完善
 - [ ] 支持响应式
-- [ ] 页面交互优化(loading，错误提示等)
 - [ ] API utils
 - [ ] 制定统一项目规范
 - [ ] 单元测试
+- [ ] 状态管理切回 `redux` 架构
+
+**交互优化**
+
+- [x] 骨架屏 - list
+- [ ] 骨架屏 - images
+- [ ] fetch new content loading
+- [ ] error 处理
+- [ ] empty 处理
 
 ## start
 
@@ -63,13 +71,13 @@ commit 结构 (注意隔行):
 | `feat:`     | 新增功能                                                                          |
 | `fix:`      | 修复 bug                                                                          |
 | `docs:`     | 仅修改文档类                                                                      |
-| `style:`    | 样式不会影响代码含义的更改，如**空白符、格式、分号补全、错别字修改等**            |
-| `refactor:` | 既不修复错误也不增加功能的代码更改                                                |
+| `style:`    | 样式不会影响代码含义的更改(**空白符、格式、分号补全、错别字修改等**)            |
+| `refactor:` | 既不修复错误也不增加功能的代码更改 (**重构**等)                                                |
 | `perf:`     | 本次代码的更改可提高性能                                                          |
-| `test:`     | 添加或修改测试内容                                                                |
 | `build:`    | 影响构建系统或外部依赖项的更改 (**Example scopes**: `webpack`, `npm`)             |
-| `ci:`       | 对 CI 配置文件和脚本的更改 (**Example scopes**: `Travis`)                         |
+| `test:`     | 添加或修改测试内容                                                                |
 | `chore:`    | 其他不会修改 src 或测试文件的更改，如 `.gitignore`,`package.json`、`yarn.json` 等 |
+| `ci:`       | 对 CI 配置文件和脚本的更改 (**Example scopes**: `Travis`)                         |
 | `revert:`   | 回退旧版本                                                                        |
 
 commit 示例:
