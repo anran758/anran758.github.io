@@ -2,7 +2,8 @@ import Skeleton from '@/layout/Skeleton';
 import Introduction from '@/layout/Introduction';
 import {
   // TagOutlined,
-  StockOutlined,
+  EditOutlined,
+  // StockOutlined,
   // LayoutOutlined,
   BulbOutlined,
 } from '@ant-design/icons';
@@ -29,10 +30,10 @@ export const routes: RouteConfig[] = [
     routes: [
       {
         path: '/',
-        name: '数据预览',
+        name: 'Home',
         exact: true,
         component: Dashboard,
-        icon: StockOutlined,
+        icon: EditOutlined,
       },
       // {
       //   path: '/layout',
@@ -96,14 +97,14 @@ export const routes: RouteConfig[] = [
             },
             component: Preview,
           },
-          {
-            name: 'jquery-todo',
-            path: '/preview/jquery-todo',
-            meta: {
-              path: 'https://anran758.github.io/jquery-todo/',
-            },
-            component: Preview,
-          },
+          // {
+          //   name: 'jquery-todo',
+          //   path: '/preview/jquery-todo',
+          //   meta: {
+          //     path: 'https://anran758.github.io/jquery-todo/',
+          //   },
+          //   component: Preview,
+          // },
           {
             name: 'React DnD example',
             path: '/preview/react-dnd-example',
