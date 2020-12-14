@@ -79,6 +79,7 @@ const fetchRSS = async (limit?: number) => {
  */
 const Dashboard: React.FC = () => {
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [latestPosts, setLatestPosts] = useState<OptionItem[]>([]);
 
   useEffect(() => {
@@ -88,8 +89,13 @@ const Dashboard: React.FC = () => {
         setLoading(false);
       })
       .then((list) => {
-        console.log(list);
+        console.log('RSS list: ', list);
         setLatestPosts(list);
+        setErrorMsg(null);
+      })
+      .catch((err) => {
+        console.log('fetch rss error: ', err);
+        setErrorMsg('获取 RSS 数据失败');
       });
   }, []);
 
@@ -97,7 +103,11 @@ const Dashboard: React.FC = () => {
     <section className={styles.container}>
       <Card title="最近文章">
         <SkeletonList loading={loading} size={DATA_SIZE}>
-          <Posts options={latestPosts} />
+          {!errorMsg ? (
+            <Posts options={latestPosts} />
+          ) : (
+            <Empty.EmptyCard text={errorMsg} />
+          )}
         </SkeletonList>
       </Card>
 

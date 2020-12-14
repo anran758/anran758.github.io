@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Card } from '@/components/Card';
 import { Row } from '@/components/Row';
 
@@ -9,7 +9,8 @@ export interface EmptyProps {
 }
 
 interface StaticComponents {
-  WorkingCard: React.FC<EmptyProps>;
+  EmptyCard: React.FC<EmptyProps>;
+  WorkingCard: React.FC;
 }
 
 export const Empty: React.FC<EmptyProps> & StaticComponents = ({
@@ -18,17 +19,19 @@ export const Empty: React.FC<EmptyProps> & StaticComponents = ({
   text?: string;
 }) => <p className={styles.content}>{text || '正在努力开发中...'}</p>;
 
-export const WorkingCard: React.FC<EmptyProps> = ({ text }) => (
+export const EmptyCard: React.FC<EmptyProps> = ({ text = '没有数据噢' }) => (
   <Row center style={{ height: '100%' }}>
-    <Card>
-      <div className={styles.workingCard}>{text || '模块开发中...'}</div>
-    </Card>
+    <div className={styles.emptyCard}>{text}</div>
   </Row>
 );
 
+export const WorkingCard: FC = () => <EmptyCard text="模块开发中..." />;
+
+EmptyCard.displayName = 'EmptyCard';
+WorkingCard.displayName = 'WorkingCard';
 
 Empty.displayName = 'Empty';
+Empty.EmptyCard = EmptyCard;
 Empty.WorkingCard = WorkingCard;
-WorkingCard.displayName = 'WorkingCard';
 
 export default Empty;

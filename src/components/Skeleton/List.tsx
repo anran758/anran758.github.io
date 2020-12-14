@@ -34,7 +34,7 @@ function generateRows(count: number) {
 export const List: FC<IListProps> = memo(({ size = 10, loading = false, children }) => {
   const rows = useMemo(() => generateRows(size), [size]);
 
-  return <section>{loading ? rows : children}</section>;
+  return loading ? <section>{rows}</section> : <>{children}</>;
 });
 
 List.displayName = 'SkeletonList';
