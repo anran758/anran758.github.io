@@ -9,6 +9,7 @@ export interface OptionItem {
   key?: React.ReactText;
   link: string;
   linkText: string;
+  tipsText?: string;
   date?: string | number;
 }
 
@@ -26,13 +27,16 @@ export const Posts: FC<PostsProps> = ({ options, style, className }) => (
     {options?.map((item, idx) => {
       return (
         <Row justify="space-between" key={item.key || idx} className={styles.row}>
-          <a className={styles.link} href={item.link} target="_blank">
+          <a
+            className={styles.link}
+            href={item.link}
+            target="_blank"
+            title={item.tipsText || item.linkText}
+          >
             {item.linkText}
           </a>
           {item.date ? (
-            <div className={styles.date}>
-              {dayjs(item.date).format('YYYY-MM-DD')}
-            </div>
+            <div className={styles.date}>{dayjs(item.date).format('YYYY-MM-DD')}</div>
           ) : null}
         </Row>
       );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, memo, useEffect, useState } from 'react';
 import Parser from 'rss-parser';
 
 import { Empty, Card } from '@/components';
@@ -21,6 +21,12 @@ const recommendList = [
     link: 'https://usehooks.com/',
     linkText: 'usehooks | React Hooks 封装示例',
   },
+  {
+    link: 'https://missing-semester-cn.github.io/',
+    linkText:
+      'The Missing Semester of Your CS Education (中译版) | 计算机教育中缺失的一课 | MIT',
+    tipsText: 'The Missing Semester of Your CS Education (中译版) | MIT',
+  },
 ];
 
 const toolsList = [
@@ -41,16 +47,27 @@ const toolsList = [
     linkText: 'regexper | 正则可视化',
   },
   {
-    link: 'http://jeremyckahn.github.io/stylie/',
-    linkText: '贝塞尔曲线可视化',
-  },
-  {
     link: 'https://designer.mocky.io/',
     linkText: 'Mocky - 数据 mock',
   },
   {
     link: 'http://jsonplaceholder.typicode.com/',
     linkText: 'JSONPlaceholder - Fake online REST API for developers',
+  },
+];
+
+const animationList = [
+  {
+    link: 'https://easings.net/cn',
+    linkText: '缓动函数速查表',
+  },
+  {
+    link: 'http://jeremyckahn.github.io/stylie/',
+    linkText: 'stylie, web animation tool | web 动画工具',
+  },
+  {
+    link: 'https://cubic-bezier.com/',
+    linkText: '贝塞尔曲线可视化',
   },
 ];
 
@@ -73,6 +90,10 @@ const fetchRSS = async (limit?: number) => {
 
   return result;
 };
+
+const Column: FC = memo((props) => {
+  return <section className={styles.column}>{props.children}</section>;
+});
 
 /**
  * 数据预览页
@@ -111,18 +132,23 @@ const Dashboard: React.FC = () => {
         </SkeletonList>
       </Card>
 
-      <section className={styles.column}>
+      <Column>
         <Card title="推荐阅读">
           <Posts options={recommendList} />
         </Card>
         <Card title="在线工具">
           <Posts options={toolsList} />
         </Card>
-      </section>
+      </Column>
 
-      <Card style={{ height: 300 }}>
-        <Empty.WorkingCard />
+      <Card title="Animation">
+        <Posts options={animationList} />
       </Card>
+      {/* <Column>
+        <Card style={{ minHeight: 300 }}>
+          <Empty.WorkingCard />
+        </Card>
+      </Column> */}
     </section>
   );
 };
