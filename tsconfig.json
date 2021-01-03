@@ -34,6 +34,7 @@
       "Static/*": ["./src/static/*"],
       "Components/*": ["./src/components/*"],
       "Layout/*": ["./src/layout/*"],
+      "@AppPages/*": ["./src/pages/App/*"],
     }
   },
   // 排除文件

@@ -8,16 +8,14 @@ import {
   BulbOutlined,
 } from '@ant-design/icons';
 
-import Dashboard from '@/pages/Dashboard';
-import Preview from '@/pages/Preview';
-import NoMatch from '@/pages/NoMatch';
+import Dashboard from '@AppPages/Dashboard';
+import Preview from '@AppPages/Preview';
+import NoMatch from '@AppPages/NoMatch';
 
 import { RouteConfig } from './index.d';
-
-export { RouteConfig };
 export { renderRoutes } from './renderRoutes';
 
-export const routes: RouteConfig[] = [
+const routes: RouteConfig[] = [
   {
     path: '/cover',
     hideMenu: true,
@@ -72,7 +70,7 @@ export const routes: RouteConfig[] = [
           {
             name: 'Flex 布局',
             path: '/preview/flex',
-            meta: { path: 'examples/flex/' },
+            meta: { path: 'pages/demos/flex/' },
             component: Preview,
           },
           {
@@ -123,3 +121,5 @@ export const routes: RouteConfig[] = [
     ],
   },
 ];
+
+export { RouteConfig, routes };

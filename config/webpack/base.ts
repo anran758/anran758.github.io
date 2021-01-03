@@ -8,7 +8,7 @@ export const basePaths = {
   buildRoot: path.resolve(__dirname, '../../dist'),
   // 静态资源根目录
   staticDir: 'static',
-  demosDir: 'examples',
+  demosDir: 'pages/demos',
 };
 
 export const baseConfig: CustomConfig = {
@@ -19,12 +19,13 @@ export const baseConfig: CustomConfig = {
 
   // 公用别名
   commonAlias: {
-    Config: path.resolve(basePaths.sourceRoot, '..', 'config'),
     '@': path.resolve(basePaths.sourceRoot),
+    Config: path.resolve(basePaths.sourceRoot, '..', 'config'),
     Static: path.resolve(basePaths.sourceRoot, basePaths.staticDir),
     Images: path.resolve(basePaths.sourceRoot, 'images'),
     Components: path.resolve(basePaths.sourceRoot, 'components'),
     Layout: path.resolve(basePaths.sourceRoot, 'layout'),
+    '@AppPages': path.resolve(basePaths.sourceRoot, 'pages/App'),
   },
 
   template: 'index.html',
