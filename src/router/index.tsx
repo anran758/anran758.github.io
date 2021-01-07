@@ -8,9 +8,9 @@ import {
   BulbOutlined,
 } from '@ant-design/icons';
 
-import Dashboard from 'AppPages/Dashboard';
-import Preview from 'AppPages/Preview';
-import NoMatch from 'AppPages/NoMatch';
+import Dashboard from '@AppPages/Dashboard';
+import Preview from '@AppPages/Preview';
+import NoMatch from '@AppPages/NoMatch';
 
 import { RouteConfig } from './index.d';
 export { renderRoutes } from './renderRoutes';

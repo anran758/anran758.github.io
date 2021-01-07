@@ -30,11 +30,11 @@
     "paths": {
       "Config/*": ["./config/*"],
       "@/*": ["./src/*"],
-      "Images/*": ["./src/images/*"],
-      "Static/*": ["./src/static/*"],
-      "Components/*": ["./src/components/*"],
-      "Layout/*": ["./src/layout/*"],
-      "AppPages/*": ["./src/pages/App/*"],
+      "@Images/*": ["./src/images/*"],
+      "@Static/*": ["./src/static/*"],
+      "@Components/*": ["./src/components/*"],
+      "@Layout/*": ["./src/layout/*"],
+      "@AppPages/*": ["./src/pages/App/*"],
     }
   },
   // 排除文件
