@@ -2,6 +2,6 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 
 import './styles/global.less';
-import App from './pages/App';
+import App from './pages/App/index';
 
 ReactDOM.render(<App />, document.getElementById('root'));
