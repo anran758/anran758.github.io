@@ -4,7 +4,7 @@ import {
   // TagOutlined,
   EditOutlined,
   // StockOutlined,
-  // LayoutOutlined,
+  LayoutOutlined,
   BulbOutlined,
 } from '@ant-design/icons';
 
@@ -33,23 +33,24 @@ const routes: RouteConfig[] = [
         component: Dashboard,
         icon: EditOutlined,
       },
-      // {
-      //   path: '/layout',
-      //   name: '布局',
-      //   icon: LayoutOutlined,
-      //   routes: [
-      //     {
-      //       path: '/layout/1',
-      //       name: '圣杯布局',
-      //       disabled: true,
-      //     },
-      //     {
-      //       path: '/layout/flex',
-      //       name: 'Flexbox',
-      //       disabled: true,
-      //     },
-      //   ],
-      // },
+      {
+        path: '/layout',
+        name: '布局',
+        icon: LayoutOutlined,
+        routes: [
+          {
+            name: 'Flex 布局',
+            path: '/layout/flex',
+            meta: { path: 'pages/demos/flex/' },
+            component: Preview,
+          },
+          {
+            path: '/layout/1',
+            name: '圣杯布局',
+            disabled: true,
+          },
+        ],
+      },
       // {
       //   name: 'UI',
       //   path: '/ui',
@@ -68,26 +69,6 @@ const routes: RouteConfig[] = [
         icon: BulbOutlined,
         routes: [
           {
-            name: 'Flex 布局',
-            path: '/preview/flex',
-            meta: { path: 'pages/demos/flex/' },
-            component: Preview,
-          },
-          {
-            name: 'Canvas 时钟',
-            path: '/preview/canvas-clock',
-            meta: { path: 'https://anran758.github.io/demos/Canvas/clock/' },
-            component: Preview,
-          },
-          {
-            name: '全屏轮播页',
-            path: '/preview/full-screen',
-            meta: {
-              path: 'https://anran758.github.io/demos/pages/full-screen-slider',
-            },
-            component: Preview,
-          },
-          {
             name: '图片预加载',
             path: '/preview/progress-bar',
             meta: {
@@ -95,19 +76,25 @@ const routes: RouteConfig[] = [
             },
             component: Preview,
           },
-          // {
-          //   name: 'jquery-todo',
-          //   path: '/preview/jquery-todo',
-          //   meta: {
-          //     path: 'https://anran758.github.io/jquery-todo/',
-          //   },
-          //   component: Preview,
-          // },
           {
-            name: 'React DnD example',
+            name: 'Canvas clock example',
+            path: '/preview/canvas-clock',
+            meta: { path: 'https://anran758.github.io/demos/Canvas/clock/' },
+            component: Preview,
+          },
+          {
+            name: 'Full screen slider',
+            path: '/preview/full-screen',
+            meta: {
+              path: 'https://anran758.github.io/demos/pages/full-screen-slider',
+            },
+            component: Preview,
+          },
+          {
+            name: 'React DnD Todos example',
             path: '/preview/react-dnd-example',
             meta: {
-              path: 'https://anran758.github.io/react-todos/',
+              path: 'https://anran758.github.io/react-dnd-todos/',
             },
             component: Preview,
           },
