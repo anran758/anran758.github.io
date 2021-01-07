@@ -11,6 +11,9 @@ script:
   - yarn build # npm run build
   - commitlint-travis
 
+# 缓存策略
+cache: false
+
 # 部署信息
 deploy:
   provider: pages
