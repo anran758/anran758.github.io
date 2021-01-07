@@ -25,7 +25,7 @@ export const baseConfig: CustomConfig = {
     Images: path.resolve(basePaths.sourceRoot, 'images'),
     Components: path.resolve(basePaths.sourceRoot, 'components'),
     Layout: path.resolve(basePaths.sourceRoot, 'layout'),
-    '@AppPages': path.resolve(basePaths.sourceRoot, 'pages/App'),
+    'AppPages': path.resolve(basePaths.sourceRoot, 'pages/App'),
   },
 
   template: 'index.html',
