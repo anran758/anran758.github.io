@@ -1,5 +1,7 @@
 # 使用最新的 LTS Node.js版本
 # https://docs.travis-ci.com/user/languages/javascript-with-nodejs/
+os: windows
+
 language: node_js
 node_js:
 - 12
@@ -25,8 +27,7 @@ deploy:
 
   # 确保 skip_cleanup 设置为 true
   # 否则 Travis CI 会删除在构建期间创建的所有文件，这可能会删除正在尝试上传的文件。
-  # skip_cleanup: true
-  cleanup: false
+  skip_cleanup: true
 
   # 要推送到 GitHub Pages 的目录，默认为当前目录(.)。
   # 可以指定为当前目录的绝对路径或相对路径
