@@ -1,7 +1,5 @@
 # 使用最新的 LTS Node.js版本
 # https://docs.travis-ci.com/user/languages/javascript-with-nodejs/
-os: windows
-
 language: node_js
 node_js:
 - 12
