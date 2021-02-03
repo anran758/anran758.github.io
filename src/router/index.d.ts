@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router';
 export interface RouteConfigComponentProps<
   Params extends { [K in keyof Params]?: string } = {}
 > extends RouteComponentProps<Params> {
-  route?: RouteConfig;
+  route: RouteConfig;
   meta?: { [metaKey: string]: any };
 }
 
