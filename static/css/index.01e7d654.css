@@ -332,18 +332,33 @@ ul {
 }
 
 /* Browser mockup code
- * Contribute: https://gist.github.com/jarthod/8719db9fef8deb937f4f
- * Live example: https://codepen.io/adrienjarthon/pen/ogjjoj
  */
-.browser-mockup {
+._2GtBzF3W3mWgFzTU_ej5YH {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  border-top: 2em solid rgba(230, 230, 230, 0.7);
   border-radius: 3px 3px 0 0;
   box-shadow: 0 0.1em 0.5em 0 rgba(0, 0, 0, 0.28);
 }
-.browser-mockup::before {
+.CfQBg4CEkM-g5KWvHeLGo {
+  min-height: 2em;
+}
+._1jEMbmIrH-GoXDGT-suZiJ {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 90px;
+  background-color: rgba(230, 230, 230, 0.7);
+  color: #3c4043;
+}
+._2g-nw2GlAGAaaVAvvCtJsJ {
+  display: inline-block;
+  margin: auto;
+  font-size: 16px;
+}
+._2-EVLv9sYa5z50DMmA7cgu {
   position: absolute;
-  top: -1.25em;
   left: 1em;
   display: block;
   width: 0.5em;
@@ -351,33 +366,44 @@ ul {
   background-color: #f44;
   border-radius: 50%;
   box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
-  content: '';
 }
-.browser-mockup.with-tab::after {
-  position: absolute;
-  top: -2em;
-  left: 5.5em;
-  display: block;
-  width: 20%;
-  height: 0;
-  border-right: 0.8em solid transparent;
-  border-bottom: 2em solid white;
-  border-left: 0.8em solid transparent;
-  content: '';
+._2UqFRlmXD6VxsBx-BbTgbS {
+  display: flex;
+  width: 100%;
+  padding: 6px 16px;
+  box-sizing: border-box;
+  background: #fff;
+  border-bottom: 1px solid #dadce0;
 }
-.browser-mockup.with-url::after {
-  position: absolute;
-  top: -1.6em;
-  left: 5.5em;
-  display: block;
-  width: calc(100% - 6em);
-  height: 1.2em;
-  background-color: white;
-  border-radius: 2px;
-  content: '';
+._2UqFRlmXD6VxsBx-BbTgbS ._2sYTX5wOakWwXoxJM-5quj {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  font-size: 14px;
 }
-.browser-mockup > * {
-  display: block;
+._2sYTX5wOakWwXoxJM-5quj .anticon {
+  cursor: pointer;
+  outline: 0;
+}
+._2sYTX5wOakWwXoxJM-5quj .anticon + .anticon {
+  margin-left: 8px;
+}
+.rhxDcb5TOaIMcUGAG82Tp {
+  flex: 1;
+  border-radius: 100px;
+  padding: 2px 12px;
+  background-color: #f1f3f4;
+  border: 2px solid #f1f3f4;
+  font-family: consolar;
+}
+.rhxDcb5TOaIMcUGAG82Tp:focus {
+  border: 2px solid #40a9ff;
+  outline: 0;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgb(24 144 12.75%);
+}
+._3agsAiZJ2jnRppTRZGG_4N {
+  flex: 1;
 }
 
 ._3x6fTkBB9aP3aDGbhHARXR {
@@ -389,6 +415,9 @@ ul {
 ._3x6fTkBB9aP3aDGbhHARXR .browser-mockup {
   height: 100%;
   box-sizing: inherit;
+}
+._2sg8oWZQjuoQbhHlRcYIYU {
+  height: 100%;
 }
 ._2FQTkLzGZAJ58DGGYOh6uQ {
   border: none;
