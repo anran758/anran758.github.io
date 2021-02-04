@@ -29,6 +29,10 @@ Tips: 目前调用的 API 大多都是 Github 的服务，因此国内用户访�
 - [ ] error 处理
 - [ ] empty 处理
 
+:sparkles: Feature
+
+- Mock Browser 支持基础的 URL 输入和 reload Demo page 的功能
+
 ## start
 
 ``` shell
