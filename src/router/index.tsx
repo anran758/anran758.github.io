@@ -1,11 +1,12 @@
 import Skeleton from '@/layout/Skeleton';
 import Introduction from '@/layout/Introduction';
 import {
-  // TagOutlined,
-  EditOutlined,
-  // StockOutlined,
-  LayoutOutlined,
   BulbOutlined,
+  CarryOutOutlined,
+  EditOutlined,
+  LayoutOutlined,
+  // TagOutlined,
+  // StockOutlined,
 } from '@ant-design/icons';
 
 import Dashboard from '@AppPages/Dashboard';
@@ -51,22 +52,23 @@ const routes: RouteConfig[] = [
           },
         ],
       },
-      // {
-      //   name: 'UI',
-      //   path: '/ui',
-      //   icon: BulbOutlined,
-      //   routes: [
-      //     {
-      //       name: 'Button',
-      //       path: '/ui/button',
-      //       disabled: true,
-      //     },
-      //   ],
-      // },
+      {
+        name: 'UI',
+        path: '/ui',
+        icon: BulbOutlined,
+        routes: [
+          {
+            name: 'Button',
+            path: '/ui/button',
+            meta: { path: '/pages/demos/button/' },
+            component: Preview,
+          },
+        ],
+      },
       {
         name: 'Demos',
         path: '/preview',
-        icon: BulbOutlined,
+        icon: CarryOutOutlined,
         routes: [
           {
             name: '图片预加载',
