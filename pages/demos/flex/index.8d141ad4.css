@@ -1,3 +1,4 @@
+/*! Copyright (c) 2020-present anran758 */
 html {
   font-family: 'helvetica neue';
   font-size: 20px;
@@ -36,23 +37,23 @@ p {
 }
 
 .panel1 {
-  background-image: url('./images/01.jpg');
+  background-image: url(/static/img/01.a8e7ddb2.jpg);
 }
 
 .panel2 {
-  background-image: url('./images/02.jpg');
+  background-image: url(/static/img/02.50b28c16.jpg);
 }
 
 .panel3 {
-  background-image: url('./images/03.jpg');
+  background-image: url(/static/img/03.70b4bb75.jpg);
 }
 
 .panel4 {
-  background-image: url('./images/04.png');
+  background-image: url(/static/img/04.b7d3aa38.png);
 }
 
 .panel5 {
-  background-image: url('./images/05.png');
+  background-image: url(/static/img/05.875a8bc2.png);
 }
 
 .item {
@@ -89,3 +90,4 @@ p {
   flex: 3;
   font-size: 40px;
 }
+

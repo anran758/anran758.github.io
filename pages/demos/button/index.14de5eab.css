@@ -1,3 +1,45 @@
+/*! Copyright (c) 2020-present anran758 */
+/* 简化reset, 对常用元素进行简化 */
+
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form,
+ol,
+ul {
+  margin: 0;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font: 12px Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: block;
+}
+
+.clearfix:after {
+  clear: both;
+}
 /* * {
   transition: all 0.6s ease;
 } */
@@ -121,7 +163,6 @@ h1 {
   stroke-width: 5;
   stroke-dasharray: 15, 310;
   stroke-dashoffset: 48;
-  -webkit-transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
   transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -143,7 +184,8 @@ h1 {
   bottom: 0px;
   content: " ";
   margin: 0 auto;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   transition: all 280ms ease-in-out;
 }
 
@@ -151,7 +193,8 @@ h1 {
 .btn-2:hover:before {
   width: 70%;
   border-color: #fff;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   transition: width 350ms ease-in-out;
 }
 
@@ -227,3 +270,4 @@ h1 {
   outline-offset: 15px;
   text-shadow: 1px 1px 2px #427388;
 }
+
