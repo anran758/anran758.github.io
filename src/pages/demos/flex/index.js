@@ -1,3 +1,5 @@
+import './index.css?normal'
+
 const panels = document.querySelectorAll('.panel');
 
 function toggleOpen() {
@@ -15,7 +17,7 @@ function toggleActicon(e) {
   }
 }
 
-panels.forEach((panel) => panel.addEventListener('click', toggleOpen));
-panels.forEach((panel) =>
+panels.forEach((panel) => {
+  panel.addEventListener('click', toggleOpen)
   panel.addEventListener('transitionend', toggleActicon)
-);
+});

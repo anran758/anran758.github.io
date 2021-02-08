@@ -62,13 +62,13 @@ const webpackProdConf: webpack.Configuration = {
           // 使用已有的 chunk
           reuseExistingChunk: true,
         },
-        styles: {
-          name: 'styles',
-          test: /\.css$/,
-          priority: 10,
-          chunks: 'all',
-          enforce: true,
-        },
+        // styles: {
+        //   name: 'styles',
+        //   test: /\.css$/,
+        //   priority: 10,
+        //   chunks: 'all',
+        //   enforce: true,
+        // },
       },
     },
   },

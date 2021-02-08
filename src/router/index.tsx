@@ -58,7 +58,7 @@ const routes: RouteConfig[] = [
         icon: BulbOutlined,
         routes: [
           {
-            name: 'Button',
+            name: 'Button Effects',
             path: '/ui/button',
             meta: { path: '/pages/demos/button/' },
             component: Preview,

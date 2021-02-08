@@ -14,7 +14,9 @@ export const basePaths = {
 export const baseConfig: CustomConfig = {
   ...basePaths,
 
-  entry: { index: path.join(basePaths.sourceRoot, 'index') },
+  entry: {
+    'pages/app/index': path.join(basePaths.sourceRoot, 'index'),
+  },
   publicPath: '/',
 
   // 公用别名

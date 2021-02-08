@@ -13,16 +13,11 @@ import site from '../../config/site';
 /**
  * 生成相对资源目录的路径
  */
-const genStaticPath = (...relativePaths: string[]) =>
-  path.join(config.staticDir, ...relativePaths);
+// const genStaticPath = (...relativePaths: string[]) =>
+//   path.join(config.staticDir, ...relativePaths);
 
 const genAssetSubPath = (dir: string) =>
-  genStaticPath(`${dir}/[name].[hash:8].[ext]`);
-
-const getCopyRootFileOpt = (filename: string) => ({
-  from: path.join(__dirname, '..', '..', filename),
-  to: path.join(config.buildRoot),
-});
+  `${config.staticDir}/${dir}/[name].[hash:8].[ext]`;
 
 /**
  * 生成 url loader 选项
@@ -33,13 +28,20 @@ const genUrlLoaderOptions = (dir: string) => ({
   name: genAssetSubPath(dir),
 });
 
+const getCopyRootFileOpt = (filename: string) => ({
+  from: path.join(__dirname, '..', '..', filename),
+  to: path.join(config.buildRoot),
+});
+
 const webpackConfig: Configuration = {
   entry: config.entry,
   output: {
     path: config.buildRoot,
     publicPath: config.publicPath,
-    filename: genStaticPath('js/[name].[hash].js'),
-    chunkFilename: genStaticPath('js/[name].bundle.js'),
+    filename: 'pages/app/[name].[hash].js',
+    chunkFilename: '[name].bundle.js',
+    // filename: genStaticPath('js/[name].[hash].js'),
+    // chunkFilename: genStaticPath('js/[name].bundle.js'),
   },
   resolve: {
     // 自动解析确定的扩展
@@ -107,8 +109,10 @@ const webpackConfig: Configuration = {
     // 将 CSS 提取到单独的文件
     // https://github.com/webpack-contrib/mini-css-extract-plugin
     new MiniCssExtractPlugin({
-      filename: genStaticPath('css/[name].[chunkhash:8].css'),
-      chunkFilename: genStaticPath('css/[name].[chunkhash:8].css'),
+      // filename: genStaticPath('css/[name].[chunkhash:8].css'),
+      // chunkFilename: genStaticPath('css/[name].[chunkhash:8].css'),
+      filename: '[name].[chunkhash:8].css',
+      // chunkFilename: 'index.[chunkhash:8].css',
     }),
 
     // 拷贝资源
@@ -120,11 +124,11 @@ const webpackConfig: Configuration = {
           to: path.join(config.buildRoot, config.staticDir),
           toType: 'dir',
         },
-        {
-          from: path.join(config.sourceRoot, config.demosDir),
-          to: path.join(config.buildRoot, config.demosDir),
-          toType: 'dir',
-        },
+        // {
+        //   from: path.join(config.sourceRoot, config.demosDir),
+        //   to: path.join(config.buildRoot, config.demosDir),
+        //   toType: 'dir',
+        // },
         getCopyRootFileOpt('README.md'),
         getCopyRootFileOpt('LICENSE'),
       ],
