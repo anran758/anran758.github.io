@@ -1,5 +1,7 @@
 import React, { FC, useCallback, useRef, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import classnames from 'classnames';
+
 import BrowserFrame from '@/layout/BrowserFrame';
 import { RouteConfigComponentProps } from '@/router/index.d';
 
@@ -20,8 +22,11 @@ const Preview: FC<RouteConfigComponentProps> = ({ meta, route }) => {
   }, []);
   const handleSearch = useCallback((v) => setPath(v), [setPath]);
 
+  console.log('meta', meta);
   return (
-    <section className={styles.container}>
+    <section className={classnames(styles.container, {
+      [styles.fullContent]: meta?.frameOptions?.fullContent ?? true
+    })}>
       <BrowserFrame
         className={styles.browserFrame}
         value={path}
