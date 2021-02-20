@@ -46,9 +46,15 @@ const routes: RouteConfig[] = [
             component: Preview,
           },
           {
-            path: '/layout/1',
+            path: '/layout/grail',
             name: '圣杯布局',
-            disabled: true,
+            meta: {
+              path: '/pages/demos/layout/grail',
+              frameOptions: {
+                fullContent: false,
+              },
+            },
+            component: Preview,
           },
         ],
       },

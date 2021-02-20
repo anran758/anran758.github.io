@@ -1,0 +1,97 @@
+@base-padding: 24px;
+@base-layout-gap: 8px;
+@base-aside-width: 180px;
+@base-aside-offset: @base-aside-width + @base-layout-gap;
+@double-aside-offset: @base-aside-offset * 2;
+
+body {
+  min-width: 600px;
+  margin: 0;
+  text-align: center;
+  background-color: #fff;
+}
+
+.header,
+.footer,
+.main,
+.aside,
+.aside-left,
+.aside-left-1,
+.aside-right,
+.aside-right-1 {
+  padding: @base-padding;
+}
+
+.header,
+.footer {
+  background-color: #ccc;
+}
+
+.main {
+  float: left;
+  width: 100%;
+  background-color: #03a9f4;
+  box-sizing: border-box;
+}
+
+.aside-left,
+.aside-left-1,
+.aside-right,
+.aside-right-1 {
+  position: relative;
+  float: left;
+  width: @base-aside-width;
+  box-sizing: border-box;
+  background-color: #00bcd4;
+}
+
+/* =================== Row style =================== */
+.row-padding-left,
+.row-padding-right,
+.row-padding-left-x2,
+.row-padding-right-x2 {
+  margin: 12px 0;
+  overflow: hidden;
+  color: #fff;
+  zoom: 1;
+}
+
+/* ================ 左侧一栏固定宽度 ================ */
+.row-padding-left {
+  padding-left: @base-aside-offset;
+}
+
+.aside-left {
+  margin-left: -100%;
+  left: -@base-aside-offset;
+}
+
+/* ================ 左侧两栏固定宽度 ================ */
+.row-padding-left-x2 {
+  padding-left: @double-aside-offset;
+}
+
+.aside-left-1 {
+  margin-left: -100%;
+  left: -@double-aside-offset;
+}
+
+/* ================ 右侧一栏固定宽度  ================*/
+.row-padding-right {
+  padding-right: @base-aside-offset;
+}
+
+.aside-right {
+  margin-left: -@base-aside-width;
+  right: -@base-aside-offset;
+}
+
+/* ================ 右侧两栏固定宽度 ================ */
+.row-padding-right-x2 {
+  padding-right: @double-aside-offset;
+}
+
+.aside-right-1 {
+  margin-left: -@base-aside-width;
+  right: -@double-aside-offset;
+}
