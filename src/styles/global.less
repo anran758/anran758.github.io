@@ -17,8 +17,11 @@ p {
 }
 
 a {
-  color: unset;
+  color: @link-color;
   text-decoration: unset;
+  &:hover {
+    color: @link-active-color;
+  }
 }
 
 li {

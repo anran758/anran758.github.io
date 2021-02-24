@@ -1,6 +1,7 @@
 @menu-item-height: 40px;
 @menu-item-left-padding: 24px;
 @menu-item-right-padding: 16px;
+@menu-item-color: #252528;
 
 .menuItem,
 .submenuItem,
@@ -10,7 +11,7 @@
   height: @menu-item-height;
   line-height: @menu-item-height;
   padding-right: @menu-item-right-padding;
-  color: #252528;
+  color: @menu-item-color;
   white-space: nowrap;
   overflow: hidden;
   transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
@@ -34,14 +35,17 @@
   }
 
   // 增加链接点击区域
-  a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: transparent;
+  a {
+    color: @menu-item-color;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: transparent;
+    }
   }
 }
 
