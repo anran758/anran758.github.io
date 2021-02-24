@@ -22,37 +22,29 @@ export interface SidebarProps {
   userInfo?: UserInfoProps;
 }
 
-const UserInfoArea: FC<UserInfoAreaProps> = memo(
-  ({ avatar, name = '', path }) => {
-    const history = useHistory();
+const UserInfoArea: FC<UserInfoAreaProps> = memo(({ avatar, name = '', path }) => {
+  const history = useHistory();
 
-    return (
-      <section className={styles.avatarWrap}>
-        <div
-          className={styles.avatar}
-          style={{
-            backgroundImage: avatar ? `url("${avatar}")` : '',
-            cursor: path ? 'pointer' : 'auto',
-          }}
-          onClick={() => path && history.push(path)}
-        ></div>
-        <p className={styles.nickname}>{name}</p>
-      </section>
-    );
-  }
-);
+  return (
+    <section className={styles.avatarWrap}>
+      <div
+        className={styles.avatar}
+        style={{
+          backgroundImage: avatar ? `url("${avatar}")` : '',
+          cursor: path ? 'pointer' : 'auto',
+        }}
+        onClick={() => path && history.push(path)}
+      ></div>
+      <p className={styles.nickname}>{name}</p>
+    </section>
+  );
+});
+UserInfoArea.displayName = 'UserInfoArea';
 
-export const Sidebar: React.FC<SidebarProps> = ({
-  collapsed = true,
-  userInfo,
-}) => {
+export const Sidebar: React.FC<SidebarProps> = ({ collapsed = true, userInfo }) => {
   return (
     <aside className={classnames(styles.sidebar, { collapsed })}>
-      <UserInfoArea
-        avatar={userInfo?.avatar_url}
-        name={userInfo?.name}
-        path="/"
-      />
+      <UserInfoArea avatar={userInfo?.avatar_url} name={userInfo?.name} path="/" />
       <Nav collapsed={collapsed} />
     </aside>
   );
