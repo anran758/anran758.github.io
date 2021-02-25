@@ -9,7 +9,7 @@ import { Posts, OptionItem } from './components/Posts';
 
 import styles from './index.less';
 
-const DATA_SIZE = 12;
+const DATA_SIZE = 10;
 
 const recommendList = [
   {
@@ -48,22 +48,26 @@ const toolsList = [
   },
   {
     link: 'https://designer.mocky.io/',
-    linkText: 'Mocky - 数据 mock',
+    linkText: 'Mocky | 数据 mock',
   },
   {
     link: 'http://jsonplaceholder.typicode.com/',
-    linkText: 'JSONPlaceholder - Fake online REST API for developers',
+    linkText: 'JSONPlaceholder | 面向开发者的 Fake online REST API',
   },
 ];
 
 const animationList = [
   {
-    link: 'https://easings.net/cn',
-    linkText: '缓动函数速查表',
+    link: 'https://csstriggers.com/',
+    linkText: 'CSS triggers | CSS 属性触发的回流与重绘参照表',
   },
   {
     link: 'http://jeremyckahn.github.io/stylie/',
     linkText: 'stylie, web animation tool | web 动画工具',
+  },
+  {
+    link: 'https://easings.net/cn',
+    linkText: '缓动函数速查表',
   },
   {
     link: 'https://cubic-bezier.com/',
@@ -122,7 +126,17 @@ const Dashboard: React.FC = () => {
 
   return (
     <section className={styles.container}>
-      <Card title="最近文章">
+      <Card
+        title="最近文章"
+        extra={
+          <a
+            href="https://anran758.github.io/blog/archives/"
+            target="https://anran758.github.io/blog/archives/"
+          >
+            全部
+          </a>
+        }
+      >
         <SkeletonList loading={loading} size={DATA_SIZE}>
           {!errorMsg ? (
             <Posts options={latestPosts} />
@@ -136,13 +150,13 @@ const Dashboard: React.FC = () => {
         <Card title="推荐阅读">
           <Posts options={recommendList} />
         </Card>
-        <Card title="在线工具">
-          <Posts options={toolsList} />
+        <Card title="CSS / Animation">
+          <Posts options={animationList} />
         </Card>
       </Column>
 
-      <Card title="Animation">
-        <Posts options={animationList} />
+      <Card title="在线工具">
+        <Posts options={toolsList} />
       </Card>
       {/* <Column>
         <Card style={{ minHeight: 300 }}>
