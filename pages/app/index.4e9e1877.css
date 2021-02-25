@@ -262,6 +262,8 @@ ul {
   background: #fff;
 }
 ._2KYAjQoihyCxfadfykPQQT {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 16px;
 }
 .i78Fi5bzeTWaYXwOzVjIY {
