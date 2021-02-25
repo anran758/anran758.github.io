@@ -6,6 +6,7 @@ import styles from './index.less';
 export interface CardProps {
   title?: string;
   className?: string;
+  extra?: React.ReactNode;
   style?: React.CSSProperties;
   bodyStyle?: React.CSSProperties;
 }
@@ -28,14 +29,24 @@ export const GraffitiTitle: FC<GraffitiTitleProps> = memo(({ text }) => {
 /**
  * 卡片容器
  */
-export const Card: FC<CardProps> = ({ title, children, style, bodyStyle ,className }) => (
+export const Card: FC<CardProps> = ({
+  title,
+  extra,
+  children,
+  style,
+  bodyStyle,
+  className,
+}) => (
   <section className={classnames(styles.card, className)} style={style}>
-    {title ? (
+    {title || extra ? (
       <header className={styles.cardHeader}>
-        {title ? <GraffitiTitle text={title} /> : null}
+        <div>{title ? <GraffitiTitle text={title} /> : null}</div>
+        <div>{extra}</div>
       </header>
     ) : null}
-    <main className={styles.cardInner} style={bodyStyle}>{children}</main>
+    <main className={styles.cardInner} style={bodyStyle}>
+      {children}
+    </main>
   </section>
 );
 
