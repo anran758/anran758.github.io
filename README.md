@@ -4,30 +4,25 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![GitHub](https://img.shields.io/github/license/anran758/anran758.github.io)](https://github.com/anran758/anran758.github.io/blob/master/LICENSE)
 
-配置式展示个人相关数据与 web 功能实现后的 demo。
-
-Tips: 目前调用的 API 大多都是 Github 的服务，因此国内用户访问可能会有加载不了资源的情况，这个问题后续再进行处理。
+web example website.
 
 ## TDDO
 
-- [x] 使用 `mobx` 进行数据管理
-- [x] Demo 展示框架
+- [x] Mock Browser component
 - [x] 支持配置路由
-- [ ] 完成 “数据概况” 页
 - [ ] 菜单组件完善
 - [ ] 支持响应式
 - [ ] API utils
 - [ ] 制定统一项目规范
 - [ ] 单元测试
-- [ ] 状态管理切回 `redux` 架构
 
 **交互优化**
 
 - [x] 骨架屏 - list
 - [ ] 骨架屏 - images
 - [ ] fetch new content loading
-- [ ] error 处理
-- [ ] empty 处理
+- [ ] error handle
+- [ ] empty handle
 
 :sparkles: Feature
 
@@ -54,37 +49,105 @@ npm run cz
 
 ## commit
 
-commit 结构 (注意隔行):
+**commit 结构** (注意换行):
 
 ``` example
-<type>[optional scope]: <description>
+<type>[optional scope]: [emoji]<description>
 
 [optional body]
 
 [optional footer(s)]
 ```
 
-- `type`: 本次 `commit` 类型
+- `type`: 本次 commit 类型
 - `optional scope`: 可选的改动范围
 - `description`: 本次 commit 简短的描述
+- `emoji`: 约定的 emoji
 
-类型含义如下:
+以下是各类型的含义，还可以增加可选的 `emoji` 增强语义:
 
-| 类型        | 说明                                                                              |
-| ----------- | --------------------------------------------------------------------------------- |
-| `feat:`     | 新增功能                                                                          |
-| `fix:`      | 修复 bug                                                                          |
-| `docs:`     | 仅修改文档类                                                                      |
-| `style:`    | 样式不会影响代码含义的更改(**空白符、格式、分号补全、错别字修改等**)            |
-| `refactor:` | 既不修复错误也不增加功能的代码更改 (**重构**等)                                                |
-| `perf:`     | 本次代码的更改可提高性能                                                          |
-| `build:`    | 影响构建系统或外部依赖项的更改 (**Example scopes**: `webpack`, `npm`)             |
-| `test:`     | 添加或修改测试内容                                                                |
-| `chore:`    | 其他不会修改 src 或测试文件的更改，如 `.gitignore`,`package.json`、`yarn.json` 等 |
-| `ci:`       | 对 CI 配置文件和脚本的更改 (**Example scopes**: `Travis`)                         |
-| `revert:`   | 回退旧版本                                                                        |
+### feat
 
-commit 示例:
+新增功能。
+
+- :tada: 初次提交
+- :sparkles: 引入新功能
+
+### fix
+
+修复 bug。
+
+- :bug: 修复 bug
+- :ambulance: 修复紧急 bug
+- :apple: 修复 MacOS 上的问题
+- :penguin: 修复 Linux 上的问题
+- :checkered_flag: 修复 Windows 上的问题
+- :robot: 解决 AndroidOS 上的问题
+- :green_apple: 解决 ios 上的问题
+
+### perf
+
+本次的代码修改可提升性能。
+
+- :zap: 提升页面性能
+- :children_crossing: 改善用户体验/可用性
+- :wheelchair: 改善无障碍
+
+### docs
+
+仅修改文档类。
+
+- :memo: 编写文档
+- :page_facing_up: 添加或更新 License
+
+### style
+
+样式不会影响代码含义的更改。
+
+- :art: 改进代码的结构 / 格式 / 分号补全等
+- :pencil2: 修改文案，错别字等文字相关的工作
+
+### refactor
+
+既不修复错误也不增加功能的代码更改。
+
+- :recycle: 代码重构
+- :chart_with_upwards_trend: 添加分析或埋点代码等
+
+### build
+
+影响构建系统或外部依赖项的更改。例如 `webpack`、`npm`、`nginx` 等。
+
+- :wrench: 更改配置文件
+- :package:  更新构建相关的逻辑
+
+### test
+
+添加或修改测试内容。
+
+### chore
+
+不会涉及到 src 或测试文件的更改。比如修改 `.gitignore`,`package.json`、`yarn.json` 等文件。
+
+- :pushpin: 将依赖关系固定到特定的版本
+- :heavy_plus_sign: 添加依赖项
+- :heavy_minus_sign: 移除依赖项
+- :arrow_up: 升级依赖
+- :arrow_down: 降级依赖
+
+### ci
+
+对 CI 配置文件和脚本的更改。
+
+- :construction_worker: 添加 CI 构建系统
+- :green_heart: 修复 CI 构建
+- :whale: 处理 docker 相关的工作
+
+### revert
+
+:rewind: 回退旧版本
+
+### commit example
 
 ``` shell
 feat(html): HTML 模板新增 favicon
@@ -99,11 +162,18 @@ closes issue #12
 ```
 
 ``` shell
+style: :pencil2:修改文案错别字
+
+# or
+style: ✏️修改文案错别字
+```
+
+``` shell
 build(webpack): 调整 webpack 构建方式
 ```
 
 ``` shell
-ci(Travis): Travis ci 添加 commitlint-travis 脚本
+ci(travis): travis-ci 添加 commitlint-travis 脚本
 ```
 
 更多示例参见: [约定式提交](https://www.conventionalcommits.org/zh-hans)
