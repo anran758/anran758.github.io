@@ -4,7 +4,7 @@
     // 解析非相对模块名的基准目录
     "baseUrl": "./",
     // 启用所有严格类型检查选项
-    "strict": true,
+    "strict": false,
     // 指定生成哪个模块系统代码
     "module": "commonjs",
     // 决定如何处理模块

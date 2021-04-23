@@ -52,7 +52,11 @@ const webpackConfig: Configuration = {
   module: {
     rules: [
       createCSSRule(/\.css$/),
-      createCSSRule(/\.less$/, 'less-loader'),
+      createCSSRule(/\.less$/, 'less-loader', {
+        lessOptions: {
+          javascriptEnabled: true,
+        },
+      }),
 
       {
         // https://github.com/TypeStrong/ts-loader
