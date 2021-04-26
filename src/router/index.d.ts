@@ -19,5 +19,7 @@ export interface RouteConfig {
   routes?: RouteConfig[];
   render?: (props: RouteConfigComponentProps<any>) => React.ReactNode;
   meta?: { [metaKey: string]: any };
+  name?: string;
+  Icon?: React.ElementType;
   [propName: string]: any;
 }

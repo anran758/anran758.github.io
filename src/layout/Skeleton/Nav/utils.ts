@@ -1,5 +1,6 @@
-import { MenuItemType } from '@/components/Menu/index.d';
 import { RouteConfig } from '@/router/index.d';
+
+import { MenuItemType } from './index.d';
 
 /**
  * 将 routes 数据转为 MenuData
@@ -20,7 +21,7 @@ export function routesToMenuData(routes: RouteConfig[]): MenuItemType[] {
       const baseItem = {
         key: path,
         label: item.name,
-        icon: item.icon,
+        Icon: item.Icon,
         disabled: item.disabled,
         disabledTips: item.disabledTips,
       };
@@ -41,3 +42,30 @@ export function routesToMenuData(routes: RouteConfig[]): MenuItemType[] {
 
   return result;
 }
+
+
+/**
+ * 解析路由信息
+ * @param pathname 当前路径名
+ * @returns string[]
+ */
+export function parseMatchRouters(pathname: string) {
+  const result: string[] = [];
+  return pathname
+    .split('/')
+    .filter((k) => k)
+    .reduce((arr, name, idx, originArr) => {
+      let currentName = `/${name}`;
+      if (idx !== 0) {
+        currentName = arr[idx - 1] + currentName;
+      }
+      arr.push(currentName);
+
+      if (idx === originArr.length - 1) {
+        arr.push(`${currentName}/`);
+      }
+
+      return arr;
+    }, result);
+}
+

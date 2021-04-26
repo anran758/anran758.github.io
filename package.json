@@ -96,6 +96,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
+    "antd": "^4.15.3",
     "classnames": "^2.2.6",
     "dayjs": "^1.8.33",
     "mobx": "^5.15.4",

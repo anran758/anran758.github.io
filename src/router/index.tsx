@@ -32,12 +32,12 @@ const routes: RouteConfig[] = [
         name: 'Home',
         exact: true,
         component: Dashboard,
-        icon: EditOutlined,
+        Icon: EditOutlined,
       },
       {
         path: '/layout',
         name: '布局',
-        icon: LayoutOutlined,
+        Icon: LayoutOutlined,
         routes: [
           {
             name: 'Flex 布局',
@@ -61,7 +61,7 @@ const routes: RouteConfig[] = [
       {
         name: 'UI',
         path: '/ui',
-        icon: BulbOutlined,
+        Icon: BulbOutlined,
         routes: [
           {
             name: 'Button Effects',
@@ -74,7 +74,7 @@ const routes: RouteConfig[] = [
       {
         name: 'Demos',
         path: '/preview',
-        icon: CarryOutOutlined,
+        Icon: CarryOutOutlined,
         routes: [
           {
             name: '图片预加载',

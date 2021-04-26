@@ -1,33 +1,43 @@
 import React, { FC, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useRouter } from '@/hooks/use-router';
-import { MenuConfigContainer } from '@/components/Menu';
+import { MenuItemType } from './index.d';
 import { routes } from '@/router';
+import { Menu } from 'antd';
 
-import { routesToMenuData } from './utils';
+import { routesToMenuData, parseMatchRouters } from './utils';
+
+const { SubMenu, Item: MenuItem } = Menu;
 
 export interface NavProps {
   collapsed?: boolean;
 }
 
-function parseMathRouters(pathname: string) {
-  const result: string[] = [];
-  return pathname
-    .split('/')
-    .filter((k) => k)
-    .reduce((arr, name, idx, originArr) => {
-      let currentName = `/${name}`;
-      if (idx !== 0) {
-        currentName = arr[idx - 1] + currentName;
-      }
-      arr.push(currentName);
 
-      if (idx === originArr.length - 1) {
-        arr.push(`${currentName}/`);
-      }
+/**
+ * 渲染菜单数据
+ */
+export function renderMenuData(menuData: MenuItemType[]) {
+  return menuData.map((data, idx) => {
+    const key = data.key || idx;
+    const { Icon, label } = data;
 
-      return arr;
-    }, result);
+    if ('items' in data) {
+      return (
+        <SubMenu icon={<Icon />} key={key} title={label}>
+          {renderMenuData(data.items)}
+        </SubMenu>
+      );
+    }
+
+    return (
+      <MenuItem key={key} icon={Icon && <Icon />}>
+        <Link to={data.path}>{label}</Link>
+      </MenuItem>
+    );
+  });
 }
+
 
 /**
  * 侧边栏导航
@@ -37,17 +47,20 @@ export const Nav: FC<NavProps> = ({ collapsed = false }) => {
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
 
   const menuData = routesToMenuData(routes);
-  const defaultOpenKeys = parseMathRouters(router.pathname);
+  const defaultOpenKeys = parseMatchRouters(router.pathname);
 
   useEffect(() => setSelectedKeys([router.pathname]), [router.pathname]);
 
   return (
-    <MenuConfigContainer
-      menuData={menuData}
-      collapsed={collapsed}
+    <Menu
+      mode="inline"
+      inlineCollapsed={collapsed}
       selectedKeys={selectedKeys}
       defaultOpenKeys={defaultOpenKeys}
-    />
+      style={{ border: 'none' }}
+    >
+      {renderMenuData(menuData)}
+    </Menu>
   );
 };
 Nav.displayName = 'Nav';

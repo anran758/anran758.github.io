@@ -38,16 +38,16 @@ const links = [
 ];
 
 export const Skeleton: FC<SkeletonProps> = ({ children, userInfo }) => {
-  const [collapsed, setCollapsed] = useState<boolean>(true);
+  const [collapsed, setCollapsed] = useState<boolean>(false);
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setCollapsed(false);
-    }, 1000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setCollapsed(false);
+  //   }, 1000);
+  // }, []);
 
   return (
     <section className={styles.container}>
