@@ -10,17 +10,11 @@ web example website.
 
 - [x] Mock Browser component
 - [x] 支持配置路由
-- [ ] 菜单组件完善
-- [ ] 支持响应式
-- [ ] API utils
-- [ ] 制定统一项目规范
-- [ ] 单元测试
 
 **交互优化**
 
-- [x] 骨架屏 - list
-- [ ] 骨架屏 - images
-- [ ] fetch new content loading
+- [x] [Skeleton] list
+- [ ] [Skeleton] images
 - [ ] error handle
 - [ ] empty handle
 
@@ -182,5 +176,7 @@ ci(travis): travis-ci 添加 commitlint-travis 脚本
 
 | branch    | 用途                                                                        |
 | --------- | --------------------------------------------------------------------------- |
-| `master`  | `<username>.github.io` 储存库只有 `master` 分支才可以使用 Github Pages 服务 |
+| `master`  | Github Pages 服务 |
 | `develop` | 触发构建的开发分支                                                          |
+
+由于 `<username>.github.io` 储存库只有 `master` 分支才可以使用 Github Pages 服务，因此 `master branch` 不是 source code.
