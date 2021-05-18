@@ -80,18 +80,26 @@ const routes: RouteConfig[] = [
             name: '图片预加载',
             path: '/preview/progress-bar',
             meta: {
-              path: 'https://anran758.github.io/demos/progress-bar',
+              path: 'https://anran758.github.io/demos/modules/progress-bar/',
             },
             component: Preview,
           },
           {
-            name: 'Canvas clock example',
-            path: '/preview/canvas-clock',
-            meta: { path: 'https://anran758.github.io/demos/Canvas/clock/' },
+            name: '图片预加载 - rotate',
+            path: '/preview/progress-bar-rotate',
+            meta: {
+              path: 'https://anran758.github.io/demos/modules/progress-bar/rotate.html',
+            },
             component: Preview,
           },
           {
-            name: 'Full screen slider',
+            name: 'Canvas 时钟',
+            path: '/preview/canvas-clock',
+            meta: { path: 'https://anran758.github.io/demos/pages/canvas/clock/' },
+            component: Preview,
+          },
+          {
+            name: '全屏滚动页',
             path: '/preview/full-screen',
             meta: {
               path: 'https://anran758.github.io/demos/pages/full-screen-slider',
@@ -99,7 +107,7 @@ const routes: RouteConfig[] = [
             component: Preview,
           },
           {
-            name: 'React DnD Todos example',
+            name: '[React DnD] 带拖拽功能的 Todos',
             path: '/preview/react-dnd-example',
             meta: {
               path: 'https://anran758.github.io/react-dnd-todos/',
