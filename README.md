@@ -31,10 +31,10 @@ npm run start
 # 生产打包
 npm run start
 
-# 校验 typescitpt 是否符合规范
+# 校验 TypeScript 是否符合规范
 npm run lint:ts
 
-# 编译 typescipt 为 js
+# 编译 TypeScript 为 js
 npm run tsc
 
 # 打开 commit 推荐信息，通过指示来提交 commit
@@ -79,7 +79,7 @@ npm run cz
 - :robot: 解决 AndroidOS 上的问题
 - :green_apple: 解决 ios 上的问题
 
-### perf
+### pref
 
 本次的代码修改可提升性能。
 
@@ -174,9 +174,9 @@ ci(travis): travis-ci 添加 commitlint-travis 脚本
 
 ## 分支
 
-| branch    | 用途                                                                        |
-| --------- | --------------------------------------------------------------------------- |
-| `master`  | Github Pages 服务 |
-| `develop` | 触发构建的开发分支                                                          |
+| branch    | 用途               |
+| --------- | ------------------ |
+| `master`  | Github Pages 服务  |
+| `develop` | 触发构建的开发分支 |
 
 由于 `<username>.github.io` 储存库只有 `master` 分支才可以使用 Github Pages 服务，因此 `master branch` 不是 source code.
