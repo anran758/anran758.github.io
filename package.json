@@ -27,7 +27,6 @@
     "@babel/core": "^7.9.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@commitlint/travis-cli": "^8.3.5",
     "@types/case-sensitive-paths-webpack-plugin": "^2.1.4",
     "@types/classnames": "^2.2.9",
     "@types/copy-webpack-plugin": "^6.0.0",
