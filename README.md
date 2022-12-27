@@ -79,7 +79,7 @@ npm run cz
 - :robot: 解决 AndroidOS 上的问题
 - :green_apple: 解决 ios 上的问题
 
-### pref
+### perf
 
 本次的代码修改可提升性能。
 
