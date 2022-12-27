@@ -1,0 +1,80 @@
+/*! Copyright (c) 2020-present anran758 */
+body {
+  min-width: 600px;
+  margin: 0;
+  text-align: center;
+  background-color: #fff;
+}
+.header,
+.footer,
+.main,
+.aside,
+.aside-left,
+.aside-left-1,
+.aside-right,
+.aside-right-1 {
+  padding: 24px;
+}
+.header,
+.footer {
+  background-color: #ccc;
+}
+.main {
+  float: left;
+  width: 100%;
+  background-color: #03a9f4;
+  box-sizing: border-box;
+}
+.aside-left,
+.aside-left-1,
+.aside-right,
+.aside-right-1 {
+  position: relative;
+  float: left;
+  width: 180px;
+  box-sizing: border-box;
+  background-color: #00bcd4;
+}
+/* =================== Row style =================== */
+.row-padding-left,
+.row-padding-right,
+.row-padding-left-x2,
+.row-padding-right-x2 {
+  margin: 12px 0;
+  overflow: hidden;
+  color: #fff;
+  zoom: 1;
+}
+/* ================ 左侧一栏固定宽度 ================ */
+.row-padding-left {
+  padding-left: 188px;
+}
+.aside-left {
+  margin-left: -100%;
+  left: -188px;
+}
+/* ================ 左侧两栏固定宽度 ================ */
+.row-padding-left-x2 {
+  padding-left: 376px;
+}
+.aside-left-1 {
+  margin-left: -100%;
+  left: -376px;
+}
+/* ================ 右侧一栏固定宽度  ================*/
+.row-padding-right {
+  padding-right: 188px;
+}
+.aside-right {
+  margin-left: -180px;
+  right: -188px;
+}
+/* ================ 右侧两栏固定宽度 ================ */
+.row-padding-right-x2 {
+  padding-right: 376px;
+}
+.aside-right-1 {
+  margin-left: -180px;
+  right: -376px;
+}
+

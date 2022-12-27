@@ -1,0 +1,93 @@
+/*! Copyright (c) 2020-present anran758 */
+html {
+  font-family: 'helvetica neue';
+  font-size: 20px;
+  font-weight: 200;
+  background: #f7f7f7;
+}
+
+body,
+p {
+  margin: 0;
+}
+
+.panels {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  background: #ececec;
+  text-align: center;
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+  transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+    flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
+  font-size: 20px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.panel1 {
+  background-image: url(/static/img/01.a8e7ddb2.jpg);
+}
+
+.panel2 {
+  background-image: url(/static/img/02.50b28c16.jpg);
+}
+
+.panel3 {
+  background-image: url(/static/img/03.70b4bb75.jpg);
+}
+
+.panel4 {
+  background-image: url(/static/img/04.b7d3aa38.png);
+}
+
+.panel5 {
+  background-image: url(/static/img/05.875a8bc2.png);
+}
+
+.item {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s;
+  font-size: 1.6em;
+  font-family: 'Amatic SC', cursive;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+}
+
+.name {
+  transform: translateY(-100%);
+}
+
+.panel .index {
+  font-size: 4em !important;
+  width: 100%;
+}
+
+.desc {
+  transform: translateY(100%);
+}
+
+.open-active .name,
+.open-active .desc {
+  transform: translateY(0);
+  width: 100%;
+}
+
+.panel.open {
+  flex: 3;
+  font-size: 40px;
+}
+
